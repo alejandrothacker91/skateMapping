@@ -9,10 +9,20 @@
  * with Particles and CrazyParticles (a subclass of Particle)
  * Note use of Inheritance and Polymorphism here.
  */
+void settings() {
+  setupLog();
 
+
+  size(640, 480, P3D);
+  //exitFlag=loadConfig();
+  //exitFlag=loadZone();
+  //setWindow();
+  //partSettings();
+  //smooth(0);// now on setup GUI
+}
 
 void setup() {
-  size(640, 480, P3D);
+  //size(640, 480, P3D);
   colorMode(HSB, 360, 255, 255, 255);
   frameRate(30);
   setupRS();

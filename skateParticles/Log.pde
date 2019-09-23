@@ -22,7 +22,7 @@ String tuia="TUIO";
 String udpa="UDP";
 String tima="TIMER";
 
-String fileName="tuioBridgeLog"+year()+logForm(month())+logForm(day())+".txt";
+String fileName="skateParticlesLog"+year()+logForm(month())+logForm(day())+".txt";
 
 int DEBUG=1;
 
