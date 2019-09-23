@@ -1,11 +1,20 @@
 float fps=30.0;
+boolean fullScr=false;
+int displayNum=0;
+int windowX=100;
+int windowY=100;
+int viewportX=100;
+int viewportY=100;
+int activeX=100;
+int activeY=100;
+int partSize=15;
+
 
 void settings() {
   setupLog();
-  delay(100);
   loadConfig();
-  
-  size(640, 480, P3D);
+  fullScreen(1);
+  //size(640, 480, P3D);
   //frameRate(fps);
 }
 
@@ -13,31 +22,17 @@ void setup() {
   //size(640, 480, P3D);
   colorMode(HSB, 360, 255, 255, 255);
   frameRate(fps);
-  setupRS();
-  setupPS();
+
+  //setupRS();
+  //setupPS();
 }
 void draw() {
-  drawRS();
-  println(frameRate+"  "+ps.particles.size());
-  /*
-  for (int i=0; i<10; i++) {
-   
-   gOrigin.x=int(random(0, width-1));
-   gOrigin.y=int(random(0, height-1));
-   
-   ps.addParticle();
-   }
-   */
-  /*
-  for (int i=0; i<10; i++) {
-   
-   //gOrigin.x=int(random(0, width-1));
-   //gOrigin.y=int(random(0, height-1));
-   
-   ps.addParticle(int(random(0, width-1)), int(random(0, height-1)));
-   }
-   */
-  ps.run();
+  background(0);
+  fill(255);
+  ellipse(mouseX, mouseY, 100, 100);
+  //drawRS();
+  //println(frameRate+"  "+ps.particles.size());
+  //ps.run();
 }
 
 

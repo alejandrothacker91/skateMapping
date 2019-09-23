@@ -40,7 +40,6 @@ void deLog(String level, String agent, String text) {
     File file = new File(fileName);
     FileWriter fr = null;
     try {
-      println("try on text file");
       fr = new FileWriter(file, true);
       String conLine=timestamp()+level+","+agent+","+text;
       String logLine=conLine+"\n";

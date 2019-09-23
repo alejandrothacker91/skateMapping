@@ -5,18 +5,34 @@ boolean loadConfig() {
   config = loadXML("config.xml");
 
   if (config!=null) {
+    fps=config.getFloat("fps", 30.0);
+
+    fullScr=boolean(config.getInt("fullscreen", 0));
+
+    displayNum=config.getInt("displayNum", 0);
+    
+    windowX=config.getInt("windowX", 200);
+    windowY=config.getInt("windowY", 100);
+    
+    viewportX=config.getInt("viewportX", 100);
+    viewportY=config.getInt("viewportY", 100);
+    
+    activeX=config.getInt("activeX", 100);
+    activeY=config.getInt("activeY", 100);
+    
+    partSize=config.getInt("partSize", 15);
+
 
     deLog(inf, cona, "config.xml file loaded.");
-
-    //fullScr=boolean(config.getInt("fullscreen", 0));
-    //deLog(inf, cona, "Fullscreen value: "+fullScr);
-
-    fps=config.getFloat("fps", 30.0);
+    
     deLog(inf, cona, "FPS: "+fps);
-
-    //udpTargetIP=config.getString("targetIP", "255.255.255.255");
-    //deLog(inf, cona, "UDP target IP address: "+udpTargetIP);
-
+    deLog(inf, cona, "Fullscreen value: "+fullScr);
+    
+    deLog(inf, cona, "Selected display: "+displayNum);
+    
+    deLog(inf, cona, "Window width: "+windowX);
+    deLog(inf, cona, "Window height: "+windowY);
+    
     return false;
   } else {
     deLog(err, cona, "Unable to load -config.xml- file. Program can't run without this. Please check documentation.");
