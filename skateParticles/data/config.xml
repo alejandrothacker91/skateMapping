@@ -1,2 +1,2 @@
-<config fps="25.0" fullscreen="0" udpLineFeed="1" targetIP="localhost" targetPort="6100" scaleX="1.0" scaleY="1.0" devMode="false" viewportX="0" viewportY="0" partsPerCursor="50" partSize="15">
+<config fps="60.0" fullscreen="0" windowX="1280" windowY="720" viewportX="0" viewportY="0" activeX="1000" activeY="800" partSize="15">
 </config>

@@ -1,30 +1,18 @@
-/**
- * Multiple Particle Systems
- * by Daniel Shiffman.
- *
- * Click the mouse to generate a burst of particles
- * at mouse position.
- *
- * Each burst is one instance of a particle system
- * with Particles and CrazyParticles (a subclass of Particle)
- * Note use of Inheritance and Polymorphism here.
- */
+float fps=30.0;
+
 void settings() {
   setupLog();
-
-
+  delay(100);
+  loadConfig();
+  
   size(640, 480, P3D);
-  //exitFlag=loadConfig();
-  //exitFlag=loadZone();
-  //setWindow();
-  //partSettings();
-  //smooth(0);// now on setup GUI
+  //frameRate(fps);
 }
 
 void setup() {
   //size(640, 480, P3D);
   colorMode(HSB, 360, 255, 255, 255);
-  frameRate(30);
+  frameRate(fps);
   setupRS();
   setupPS();
 }
