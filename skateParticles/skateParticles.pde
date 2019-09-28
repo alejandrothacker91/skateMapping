@@ -45,6 +45,7 @@ void draw() {
 
 
 void mousePressed() {
+  deLog(inf, loga, "Program finished on purpose.");
   exit();
   //systems.add(new ParticleSystem(1, new PVector(mouseX, mouseY)));
   //systems.remove(0);
