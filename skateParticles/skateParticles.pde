@@ -41,6 +41,9 @@ void draw() {
   fill(255);
   ellipse(mouseX, mouseY, 10, 10);
   drawDepth();
+  fill(0, 0);
+  stroke(255);
+  rect(0, 0, 1080, 1080);
 }
 
 

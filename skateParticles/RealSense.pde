@@ -22,20 +22,25 @@ void setupRS()
   camera.start(camResX, camResY, camFPS, depStream, colStream);
 }
 int biasX=0;
-int biasY=0;
+int biasY=135;
 
-float scaleX=2.0;
-float scaleY=2.0;
+float scaleX=1.68750f;//1080
+float scaleY=1.68750f;//810
+
+int deadX=9;
 
 void drawDepth() {
   camera.readFrames();
   //fill(255);
   for (int i=0; i<camResX; i+=10) {
     for (int j=0; j<camResY; j+=10) {
-      //systems.add(new ParticleSystem(1, new PVector(i, j)));
-      int currDepth=camera.getDepth(i, j);
-      fill(map(currDepth, 0, 15000, 0, 255));
-      ellipse(i, j, 5, 5);
+      if (i>deadX) {
+
+        //systems.add(new ParticleSystem(1, new PVector(i, j)));
+        int currDepth=camera.getDepth(i, j);
+        fill(map(currDepth, 0, 5000, 0, 255));
+        ellipse(biasX+i*scaleX, biasY+j*scaleY, 5, 5);
+      }
     }
   }
 }
