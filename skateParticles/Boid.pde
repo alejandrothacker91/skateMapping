@@ -44,7 +44,7 @@ class Boid {
     avoidDir.mult(1);
     if (!option_crowd) avoidDir.mult(0);
     
-    avoidObjects.mult(3);
+    avoidObjects.mult(6);
     if (!option_avoid) avoidObjects.mult(0);
 
     noise.mult(0.1);
@@ -189,7 +189,7 @@ class Boid {
       //line(this.pos.x, this.pos.y, f.pos.x, f.pos.y);
     }
     noStroke();
-    fill(shade, 90, 200);
+    fill(0, 255, 255);
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(move.heading());
@@ -207,7 +207,7 @@ class Boid {
   }
 
   void wrap () {
-    pos.x = (pos.x + width) % width;
-    pos.y = (pos.y + height) % height;
+    pos.x = (pos.x + poolX) % poolX;
+    pos.y = (pos.y + poolY) % poolY;
   }
 }

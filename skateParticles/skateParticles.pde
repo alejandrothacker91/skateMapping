@@ -32,7 +32,8 @@ void setup() {
   frameRate(fps);
   setWin();
   setupRS();
-  //setupPS();
+
+  setupBoids();
 }
 void draw() {
   //background(backHue, backSat, backBri, backAlfa);
@@ -45,6 +46,8 @@ void draw() {
   fill(0, 0);
   stroke(255);
   rect(0, 0, poolX, poolY);
+
+  drawBoids();
 }
 
 

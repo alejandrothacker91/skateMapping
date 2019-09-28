@@ -1,3 +1,5 @@
+int maxPop=500;
+
 Boid barry;
 ArrayList<Boid> boids;
 ArrayList<Avoid> avoids;
@@ -24,53 +26,31 @@ int messageTimer = 0;
 String messageText = "";
 
 void setupBoids () {
-  size(1024, 576);
+  //size(1024, 576);
   textSize(16);
   recalculateConstants();
   boids = new ArrayList<Boid>();
+
+  for (int i=0; i<maxPop; i++) {
+    boids.add(new Boid(poolX/2, poolY/2));
+  }
+
   avoids = new ArrayList<Avoid>();
   for (int x = 100; x < width - 100; x+= 100) {
     for (int y = 100; y < height - 100; y+= 100) {
- //   boids.add(new Boid(x + random(3), y + random(3)));
-  //    boids.add(new Boid(x + random(3), y + random(3)));
+      //   boids.add(new Boid(x + random(3), y + random(3)));
+      //    boids.add(new Boid(x + random(3), y + random(3)));
     }
   }
-  
+
   setupWalls();
 }
 
-// haha
-void recalculateConstants () {
-  maxSpeed = 2.1 * globalScale;
-  friendRadius = 60 * globalScale;
-  crowdRadius = (friendRadius / 1.3);
-  avoidRadius = 90 * globalScale;
-  coheseRadius = friendRadius;
-}
-
-
-void setupWalls() {
-  avoids = new ArrayList<Avoid>();
-   for (int x = 0; x < width; x+= 20) {
-    avoids.add(new Avoid(x, 10));
-    avoids.add(new Avoid(x, height - 10));
-  } 
-}
-
-void setupCircle() {
-  avoids = new ArrayList<Avoid>();
-   for (int x = 0; x < 50; x+= 1) {
-     float dir = (x / 50.0) * TWO_PI;
-    avoids.add(new Avoid(width * 0.5 + cos(dir) * height*.4, height * 0.5 + sin(dir)*height*.4));
-  } 
-}
-
-
 void drawBoids () {
-  noStroke();
-  colorMode(HSB);
-  fill(0, 100);
-  rect(0, 0, width, height);
+  //noStroke();
+  //colorMode(HSB);
+  //fill(0, 100);
+  //rect(0, 0, width, height);
 
 
   if (tool == "erase") {
@@ -82,7 +62,7 @@ void drawBoids () {
     }
   } else if (tool == "avoids") {
     noStroke();
-    fill(0, 200, 200);
+    fill(0, 255, 255);
     ellipse(mouseX, mouseY, 15, 15);
   }
   for (int i = 0; i <boids.size(); i++) {
@@ -98,9 +78,35 @@ void drawBoids () {
   }
 
   if (messageTimer > 0) {
-    messageTimer -= 1; 
+    messageTimer -= 1;
   }
   drawGUI();
+}
+
+// haha
+void recalculateConstants () {
+  maxSpeed = 4.0;
+  friendRadius = 60 * globalScale;
+  crowdRadius = (friendRadius / 1.3);
+  avoidRadius = 90 * globalScale;
+  coheseRadius = friendRadius;
+}
+
+
+void setupWalls() {
+  avoids = new ArrayList<Avoid>();
+  for (int x = 0; x < width; x+= 20) {
+    avoids.add(new Avoid(x, 10));
+    avoids.add(new Avoid(x, height - 10));
+  }
+}
+
+void setupCircle() {
+  avoids = new ArrayList<Avoid>();
+  for (int x = 0; x < 50; x+= 1) {
+    float dir = (x / 50.0) * TWO_PI;
+    avoids.add(new Avoid(width * 0.5 + cos(dir) * height*.4, height * 0.5 + sin(dir)*height*.4));
+  }
 }
 
 void keyPressed () {
@@ -117,38 +123,37 @@ void keyPressed () {
     message("Decreased scale");
     globalScale *= 0.8;
   } else if (key == '=') {
-      message("Increased Scale");
+    message("Increased Scale");
     globalScale /= 0.8;
   } else if (key == '1') {
-     option_friend = option_friend ? false : true;
-     message("Turned friend allignment " + on(option_friend));
+    option_friend = option_friend ? false : true;
+    message("Turned friend allignment " + on(option_friend));
   } else if (key == '2') {
-     option_crowd = option_crowd ? false : true;
-     message("Turned crowding avoidance " + on(option_crowd));
+    option_crowd = option_crowd ? false : true;
+    message("Turned crowding avoidance " + on(option_crowd));
   } else if (key == '3') {
-     option_avoid = option_avoid ? false : true;
-     message("Turned obstacle avoidance " + on(option_avoid));
-  }else if (key == '4') {
-     option_cohese = option_cohese ? false : true;
-     message("Turned cohesion " + on(option_cohese));
-  }else if (key == '5') {
-     option_noise = option_noise ? false : true;
-     message("Turned noise " + on(option_noise));
+    option_avoid = option_avoid ? false : true;
+    message("Turned obstacle avoidance " + on(option_avoid));
+  } else if (key == '4') {
+    option_cohese = option_cohese ? false : true;
+    message("Turned cohesion " + on(option_cohese));
+  } else if (key == '5') {
+    option_noise = option_noise ? false : true;
+    message("Turned noise " + on(option_noise));
   } else if (key == ',') {
-     setupWalls(); 
+    setupWalls();
   } else if (key == '.') {
-     setupCircle(); 
+    setupCircle();
   }
   recalculateConstants();
-
 }
 
 void drawGUI() {
-   if(messageTimer > 0) {
-     fill((min(30, messageTimer) / 30.0) * 255.0);
+  if (messageTimer > 0) {
+    fill((min(30, messageTimer) / 30.0) * 255.0);
 
-    text(messageText, 10, height - 20); 
-   }
+    text(messageText, 10, height - 20);
+  }
 }
 
 String s(int count) {
@@ -156,7 +161,7 @@ String s(int count) {
 }
 
 String on(boolean in) {
-  return in ? "on" : "off"; 
+  return in ? "on" : "off";
 }
 
 void mousePressed () {
@@ -196,6 +201,6 @@ void drawText (String s, float x, float y) {
 
 
 void message (String in) {
-   messageText = in;
-   messageTimer = (int) frameRate * 3;
+  messageText = in;
+  messageTimer = (int) frameRate * 3;
 }
