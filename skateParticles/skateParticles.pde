@@ -9,6 +9,16 @@ int activeX=100;
 int activeY=100;
 int partSize=15;
 
+int backHue=0;
+int backSat=255;
+int backBri=255;
+int backAlfa=255;
+
+int partHue=180;
+int partSat=255;
+int partBri=255;
+int partAlfa=255;
+
 
 void settings() {
   setupLog();
@@ -27,8 +37,8 @@ void setup() {
   //setupPS();
 }
 void draw() {
-  background(0);
-  fill(255);
+  background(backHue, backSat, backBri, backAlfa);
+  fill(partHue, partSat, partBri, partAlfa);
   ellipse(mouseX, mouseY, 100, 100);
   //drawRS();
   //println(frameRate+"  "+ps.particles.size());
@@ -37,6 +47,7 @@ void draw() {
 
 
 void mousePressed() {
+  exit();
   //systems.add(new ParticleSystem(1, new PVector(mouseX, mouseY)));
   //systems.remove(0);
 }
