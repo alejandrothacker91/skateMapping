@@ -23,7 +23,7 @@ boolean option_cohese = true;
 int messageTimer = 0;
 String messageText = "";
 
-void setup () {
+void setupBoids () {
   size(1024, 576);
   textSize(16);
   recalculateConstants();
@@ -66,7 +66,7 @@ void setupCircle() {
 }
 
 
-void draw () {
+void drawBoids () {
   noStroke();
   colorMode(HSB);
   fill(0, 100);
