@@ -52,3 +52,21 @@ boolean loadConfig() {
     return true;
   }//end else
 }
+
+void fullWin() {  
+  if (fullScr) {
+    fullScreen(P3D, displayNum);
+  } else {
+    size(windowX, windowY, P3D);
+  }
+}
+
+void setWin() {
+  if (!fullScr) {
+    surface.setLocation(viewportX, viewportY);
+    surface.setResizable(false);
+    surface.setTitle("SkateParticles by Voxel");
+    surface.setAlwaysOnTop(true);
+  } else {
+  }
+}

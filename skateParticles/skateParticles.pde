@@ -23,19 +23,14 @@ int partAlfa=255;
 void settings() {
   setupLog();
   loadConfig();
-  if (fullScr) {
-    fullScreen(P3D, displayNum);
-  } else {
-    size(windowX, windowY, P3D);
-  }
-  //frameRate(fps);
+  fullWin();
 }
 
 void setup() {
   //size(640, 480, P3D);
   colorMode(HSB, 360, 255, 255, 255);
   frameRate(fps);
-
+  setWin();
   //setupRS();
   //setupPS();
 }
