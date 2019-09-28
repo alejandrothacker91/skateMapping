@@ -1,2 +1,2 @@
-<config fps="60.0" fullscreen="0" displayNum="0" windowX="1280" windowY="720" viewportX="0" viewportY="0" activeX="1000" activeY="800" partSize="15" backHue="0" backSat="255" backBri="255" backAlfa="255" partHue="180"  partSat="255" partBri="255" partAlfa="255">
+<config fps="60.0" fullscreen="1" displayNum="1" windowX="1280" windowY="720" viewportX="0" viewportY="0" activeX="1000" activeY="800" partSize="15" backHue="0" backSat="255" backBri="255" backAlfa="255" partHue="180"  partSat="255" partBri="255" partAlfa="255">
 </config>

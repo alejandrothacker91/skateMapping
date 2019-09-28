@@ -56,8 +56,10 @@ boolean loadConfig() {
 void fullWin() {  
   if (fullScr) {
     fullScreen(P3D, displayNum);
+    deLog(inf, cona, "Fullscreen surface created on display "+displayNum);
   } else {
     size(windowX, windowY, P3D);
+    deLog(inf, cona, "Window created with size: "+windowX+" , "+windowY);
   }
 }
 
@@ -65,8 +67,11 @@ void setWin() {
   if (!fullScr) {
     surface.setLocation(viewportX, viewportY);
     surface.setResizable(false);
-    surface.setTitle("SkateParticles by Voxel");
+    surface.setTitle("SkateParticles by Voxel - FPS: "+fps);
     surface.setAlwaysOnTop(true);
+
+    deLog(inf, cona, "Window placed on viewport: "+viewportX+" , "+viewportY);
   } else {
+    deLog(inf, cona, "Fullscreen surface has size: "+width+" , "+height);
   }
 }
