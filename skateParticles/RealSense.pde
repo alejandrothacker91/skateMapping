@@ -24,8 +24,10 @@ void setupRS()
 int biasX=0;
 int biasY=135;
 
-float scaleX=1.68750f;//1080
-float scaleY=1.68750f;//810
+//float scaleX=1.68750f;//1080
+//float scaleY=1.68750f;//810
+float scaleX=poolX/camResX;//1080
+float scaleY=poolY/camResY;//1080
 
 int deadX=9;
 

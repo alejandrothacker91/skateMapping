@@ -37,16 +37,31 @@ void setup() {
 void draw() {
   //background(backHue, backSat, backBri, backAlfa);
   background(partHue, partSat, partBri, partAlfa);
+  background(0);
   noStroke();
   fill(255);
   ellipse(mouseX, mouseY, 10, 10);
-  drawDepth();
+  drawPool();
+  //drawDepth();
   //fillSpaces();
-  fill(0, 0);
-  stroke(255);
-  rect(0, 0, poolX, poolY);
 }
 
+void drawPool() { 
+  fill(0, 0);
+  stroke(0, 255, 255, 255);
+  strokeWeight(5);
+  rect(0, 0, poolX, poolY);
+  strokeWeight(1);
+}
+
+void setPool() {
+  poolX=1+mouseX;
+  poolY=1+mouseY;
+  if (frameCount%30==0) {
+    println("PoolX: "+poolX);
+    println("PoolY: "+poolY);
+  }
+}
 
 void mousePressed() {
   deLog(inf, loga, "Program finished on purpose.");
