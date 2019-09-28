@@ -29,11 +29,13 @@ float scaleY=1.68750f;//810
 
 int deadX=9;
 
+int partJump=10;
+
 void drawDepth() {
   camera.readFrames();
   //fill(255);
-  for (int i=0; i<camResX; i+=10) {
-    for (int j=0; j<camResY; j+=10) {
+  for (int i=0; i<camResX; i+=partJump) {
+    for (int j=0; j<camResY; j+=partJump) {
       if (i>deadX) {
         int currDepth=camera.getDepth(i, j);
 
@@ -49,6 +51,24 @@ void drawDepth() {
     }
   }
 }
+
+void fillSpaces() {
+  for (int i=partJump/2; i<poolX; i+=partJump*scaleX) {
+    for (int j=partJump/2; j<poolY; j+=partJump*scaleY) {
+      if (j<(biasY-partJump)) {
+        //fill(0, 255, 255, 255);
+        fill(partHue, partSat, partBri, partAlfa);
+        ellipse(i, j, partSize, partSize);
+      }
+      if (j>=(biasY-partJump)+camResY*scaleY) {
+        //fill(0, 255, 255, 255);
+        fill(partHue, partSat, partBri, partAlfa);
+        ellipse(i, j, partSize, partSize);
+      }
+    }
+  }
+}
+
 void drawRS()
 {
   background(0);

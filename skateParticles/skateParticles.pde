@@ -5,8 +5,8 @@ int windowX=100;
 int windowY=100;
 int viewportX=100;
 int viewportY=100;
-int activeX=100;
-int activeY=100;
+int poolX=100;
+int poolY=100;
 int partSize=15;
 
 int backHue=0;
@@ -41,9 +41,10 @@ void draw() {
   fill(255);
   ellipse(mouseX, mouseY, 10, 10);
   drawDepth();
+  fillSpaces();
   fill(0, 0);
   stroke(255);
-  rect(0, 0, 1080, 1080);
+  rect(0, 0, poolX, poolY);
 }
 
 

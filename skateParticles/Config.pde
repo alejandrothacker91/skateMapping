@@ -17,8 +17,8 @@ boolean loadConfig() {
     viewportX=config.getInt("viewportX", 100);
     viewportY=config.getInt("viewportY", 100);
 
-    activeX=config.getInt("activeX", 100);
-    activeY=config.getInt("activeY", 100);
+    poolX=config.getInt("poolX", 1080);
+    poolY=config.getInt("poolY", 1080);
 
     partSize=config.getInt("partSize", 15);
 
