@@ -65,6 +65,8 @@ void drawBoids () {
     fill(0, 255, 255);
     ellipse(mouseX, mouseY, 15, 15);
   }
+
+
   for (int i = 0; i <boids.size(); i++) {
     Boid current = boids.get(i);
     current.go();
@@ -83,6 +85,11 @@ void drawBoids () {
   drawGUI();
 }
 
+void mouseUpdate() {
+  Avoid currAv=avoids.get(0);
+  currAv.setX(mouseX);
+  currAv.setY(mouseY);
+}
 // haha
 void recalculateConstants () {
   maxSpeed = 4.0;
@@ -95,10 +102,8 @@ void recalculateConstants () {
 
 void setupWalls() {
   avoids = new ArrayList<Avoid>();
-  for (int x = 0; x < width; x+= 20) {
-    avoids.add(new Avoid(x, 10));
-    avoids.add(new Avoid(x, height - 10));
-  }
+  //avoids.add(new Avoid(poolX/2, poolY/2));
+  //avoids.clear();
 }
 
 void setupCircle() {

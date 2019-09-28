@@ -15,7 +15,7 @@ int depThresh=1500;
 
 PImage currFrame;
 
-void setupRS(){
+void setupRS() {
   // width, height, fps, depth-stream, color-stream
   //camera.start(640, 480, 30, true, false);
   camera.start(camResX, camResY, camFPS, depStream, colStream);
@@ -41,6 +41,7 @@ void drawDepth() {
 
         if ((currDepth>1000)&&(currDepth<1500)) {
           fill(backHue, backSat, backBri, backAlfa);
+          avoids.add(new Avoid(biasX+i*scaleX, biasY+j*scaleY));
         } else {
           fill(partHue, partSat, partBri, partAlfa);
         }
