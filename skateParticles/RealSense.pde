@@ -35,12 +35,17 @@ void drawDepth() {
   for (int i=0; i<camResX; i+=10) {
     for (int j=0; j<camResY; j+=10) {
       if (i>deadX) {
-
-        //systems.add(new ParticleSystem(1, new PVector(i, j)));
         int currDepth=camera.getDepth(i, j);
-        fill(map(currDepth, 0, 5000, 0, 255));
-        ellipse(biasX+i*scaleX, biasY+j*scaleY, 5, 5);
-      }
+
+        if ((currDepth>1000)&&(currDepth<1500)) {
+          fill(backHue, backSat, backBri, backAlfa);
+        } else {
+          fill(partHue, partSat, partBri, partAlfa);
+        }
+
+        //fill(map(currDepth, 0, 5000, 0, 255));
+        ellipse(biasX+i*scaleX, biasY+j*scaleY, partSize, partSize);
+      }//only values out of the dead pixels zone
     }
   }
 }
