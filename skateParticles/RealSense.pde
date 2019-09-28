@@ -21,7 +21,24 @@ void setupRS()
   //camera.start(640, 480, 30, true, false);
   camera.start(camResX, camResY, camFPS, depStream, colStream);
 }
+int biasX=0;
+int biasY=0;
 
+float scaleX=2.0;
+float scaleY=2.0;
+
+void drawDepth() {
+  camera.readFrames();
+  //fill(255);
+  for (int i=0; i<camResX; i+=10) {
+    for (int j=0; j<camResY; j+=10) {
+      //systems.add(new ParticleSystem(1, new PVector(i, j)));
+      int currDepth=camera.getDepth(i, j);
+      fill(map(currDepth, 0, 15000, 0, 255));
+      ellipse(i, j, 5, 5);
+    }
+  }
+}
 void drawRS()
 {
   background(0);
@@ -31,6 +48,7 @@ void drawRS()
 
   // create grayscale image form depth buffer
   // min and max depth
+  //--
   camera.createDepthImage(minDepth, maxDepth);
   //currFrame=camera.getDepthImage();
 
@@ -43,6 +61,7 @@ void drawRS()
   //image(camera.getColorImage(), 0, 0);
 
   //colorMode(HSB, 360, 255, 255, 255);
+  //--
   dep2Part(10);
 
   //image(currFrame, 0, 0);

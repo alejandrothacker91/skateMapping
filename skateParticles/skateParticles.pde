@@ -37,10 +37,10 @@ void setup() {
 void draw() {
   background(backHue, backSat, backBri, backAlfa);
   fill(partHue, partSat, partBri, partAlfa);
-  ellipse(mouseX, mouseY, 100, 100);
-  //drawRS();
-  //println(frameRate+"  "+ps.particles.size());
-  //ps.run();
+  noStroke();
+  fill(255);
+  ellipse(mouseX, mouseY, 10, 10);
+  drawDepth();
 }
 
 
