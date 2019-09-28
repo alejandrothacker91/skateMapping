@@ -92,7 +92,7 @@ void drawRS()
 
   //colorMode(HSB, 360, 255, 255, 255);
   //--
-  dep2Part(10);
+  //dep2Part(10);
 
   //image(currFrame, 0, 0);
   //println(frameRate);
@@ -106,23 +106,6 @@ void walkDepth(int jump) {
         noStroke();
         fill(255, 0, 0, 255);
         ellipse(i, j, 10, 10);
-        //println("TRIGGERED AT  "+i+"  ,  "+j);
-      }
-    }
-  }
-}
-
-void dep2Part(int jump) {
-  for (int i=0; i<width; i+=jump) {
-    for (int j=0; j<height; j+=jump) {
-      //systems.add(new ParticleSystem(1, new PVector(i, j)));
-      int currDepth=camera.getDepth(i, j);
-      if ((currDepth<depThresh)&&(currDepth>minThresh)) {
-        //noStroke();
-        //fill(255, 0, 0, 255);
-        //ellipse(i, j, 10, 10);
-
-        ps.addParticle(i, j);
         //println("TRIGGERED AT  "+i+"  ,  "+j);
       }
     }
