@@ -23,8 +23,11 @@ int partAlfa=255;
 void settings() {
   setupLog();
   loadConfig();
-  fullScreen(1);
-  //size(640, 480, P3D);
+  if (fullScr) {
+    fullScreen(P3D, displayNum);
+  } else {
+    size(windowX, windowY, P3D);
+  }
   //frameRate(fps);
 }
 
