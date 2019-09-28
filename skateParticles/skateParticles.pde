@@ -36,7 +36,7 @@ void setup() {
 }
 void draw() {
   //background(backHue, backSat, backBri, backAlfa);
-  background(partHue, partSat, partBri, partAlfa);
+  //background(partHue, partSat, partBri, partAlfa);
   background(0);
   noStroke();
   fill(255);
@@ -44,6 +44,7 @@ void draw() {
   drawPool();
   //drawDepth();
   //fillSpaces();
+  showDepth();
 }
 
 void drawPool() { 

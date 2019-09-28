@@ -20,14 +20,17 @@ void setupRS()
   // width, height, fps, depth-stream, color-stream
   //camera.start(640, 480, 30, true, false);
   camera.start(camResX, camResY, camFPS, depStream, colStream);
+
+  scaleX=poolX/camResX;//1080
+  scaleY=poolY/camResY;//1080
 }
 int biasX=0;
 int biasY=135;
 
 //float scaleX=1.68750f;//1080
 //float scaleY=1.68750f;//810
-float scaleX=poolX/camResX;//1080
-float scaleY=poolY/camResY;//1080
+float scaleX=1.0;
+float scaleY=1.0;
 
 int deadX=9;
 
@@ -52,6 +55,12 @@ void drawDepth() {
       }//only values out of the dead pixels zone
     }
   }
+}
+
+void showDepth() {
+  camera.readFrames();
+  camera.createDepthImage(0, 1000);
+  image(camera.getDepthImage(), 0, 0, poolX, poolY);
 }
 
 void fillSpaces() {
