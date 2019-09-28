@@ -31,7 +31,7 @@ void setup() {
   colorMode(HSB, 360, 255, 255, 255);
   frameRate(fps);
   setWin();
-  //setupRS();
+  setupRS();
   //setupPS();
 }
 void draw() {

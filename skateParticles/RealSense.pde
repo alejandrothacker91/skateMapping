@@ -6,7 +6,7 @@ int camResX=640;
 int camResY=480;
 int camFPS=30;
 boolean depStream=true;
-boolean colStream=true;
+boolean colStream=false;
 int minDepth=0;
 int maxDepth=3000;
 
