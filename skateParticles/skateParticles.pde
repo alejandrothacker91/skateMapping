@@ -39,12 +39,13 @@ void draw() {
   //background(partHue, partSat, partBri, partAlfa);
   background(0);
   noStroke();
-  fill(255);
-  ellipse(mouseX, mouseY, 10, 10);
   drawPool();
   //drawDepth();
   //fillSpaces();
   showDepth();
+  showCoords();
+  fill(0, 255, 255);
+  ellipse(mouseX, mouseY, 10, 10);
 }
 
 void drawPool() { 
@@ -61,6 +62,15 @@ void setPool() {
   if (frameCount%30==0) {
     println("PoolX: "+poolX);
     println("PoolY: "+poolY);
+  }
+}
+
+void showCoords() {
+  //poolX=1+mouseX;
+  //poolY=1+mouseY;
+  if (frameCount%30==0) {
+    println("Mouse X: "+mouseX);
+    println("Mouse Y: "+mouseY);
   }
 }
 

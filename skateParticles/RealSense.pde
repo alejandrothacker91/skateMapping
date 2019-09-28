@@ -56,11 +56,13 @@ void drawDepth() {
     }
   }
 }
+float scalaX=2.890f;
 
 void showDepth() {
   camera.readFrames();
-  camera.createDepthImage(0, 1000);
-  image(camera.getDepthImage(), 0, 0, poolX, poolY);
+  camera.createDepthImage(2200, 2400);
+  image(camera.getDepthImage(), -1179, -966, poolX*scalaX, poolY*scalaX);
+  filter(THRESHOLD, 0.20f);
 }
 
 void fillSpaces() {
