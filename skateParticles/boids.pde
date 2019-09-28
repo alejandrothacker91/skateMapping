@@ -1,10 +1,10 @@
-int maxPop=500;
+int maxPop=2000;
 
 Boid barry;
 ArrayList<Boid> boids;
 ArrayList<Avoid> avoids;
 
-float globalScale = .91;
+float globalScale = 1.70;
 float eraseRadius = 20;
 String tool = "boids";
 
@@ -15,7 +15,7 @@ float crowdRadius;
 float avoidRadius;
 float coheseRadius;
 
-boolean option_friend = true;
+boolean option_friend = false;
 boolean option_crowd = true;
 boolean option_avoid = true;
 boolean option_noise = true;
@@ -32,7 +32,9 @@ void setupBoids () {
   boids = new ArrayList<Boid>();
 
   for (int i=0; i<maxPop; i++) {
-    boids.add(new Boid(poolX/2, poolY/2));
+    //boids.add(new Boid(poolX/2, poolY/2));
+    boids.add(new Boid(random(0, poolX), random(0, poolY)));
+    delay(1);
   }
 
   avoids = new ArrayList<Avoid>();
@@ -83,6 +85,7 @@ void drawBoids () {
     messageTimer -= 1;
   }
   drawGUI();
+  avoids.clear();
 }
 
 void mouseUpdate() {
@@ -206,6 +209,7 @@ void drawText (String s, float x, float y) {
 
 
 void message (String in) {
+  println(in);
   messageText = in;
   messageTimer = (int) frameRate * 3;
 }

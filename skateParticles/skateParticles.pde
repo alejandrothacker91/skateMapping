@@ -36,8 +36,8 @@ void setup() {
   setupBoids();
 }
 void draw() {
-  //background(backHue, backSat, backBri, backAlfa);
-  background(partHue, partSat, partBri, partAlfa);
+  background(backHue, backSat, backBri, backAlfa);
+  //background(partHue, partSat, partBri, partAlfa);
   noStroke();
   fill(255);
   ellipse(mouseX, mouseY, 10, 10);
@@ -46,7 +46,6 @@ void draw() {
   fill(0, 0);
   stroke(255);
   rect(0, 0, poolX, poolY);
-
   drawBoids();
 }
 

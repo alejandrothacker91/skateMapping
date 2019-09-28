@@ -40,14 +40,14 @@ void drawDepth() {
         int currDepth=camera.getDepth(i, j);
 
         if ((currDepth>1000)&&(currDepth<1500)) {
-          fill(backHue, backSat, backBri, backAlfa);
+          //fill(backHue, backSat, backBri, backAlfa);
           avoids.add(new Avoid(biasX+i*scaleX, biasY+j*scaleY));
         } else {
-          fill(partHue, partSat, partBri, partAlfa);
+          //fill(partHue, partSat, partBri, partAlfa);
         }
 
         //fill(map(currDepth, 0, 5000, 0, 255));
-        ellipse(biasX+i*scaleX, biasY+j*scaleY, partSize, partSize);
+        //ellipse(biasX+i*scaleX, biasY+j*scaleY, partSize, partSize);
       }//only values out of the dead pixels zone
     }
   }

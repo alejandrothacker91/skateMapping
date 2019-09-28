@@ -40,11 +40,11 @@ class Boid {
 
     allign.mult(1);
     if (!option_friend) allign.mult(0);
-    
+
     avoidDir.mult(1);
     if (!option_crowd) avoidDir.mult(0);
-    
-    avoidObjects.mult(6);
+
+    avoidObjects.mult(3.0);
     if (!option_avoid) avoidObjects.mult(0);
 
     noise.mult(0.1);
@@ -52,7 +52,7 @@ class Boid {
 
     cohese.mult(1);
     if (!option_cohese) cohese.mult(0);
-    
+
     stroke(0, 255, 160);
 
     move.add(allign);
@@ -62,7 +62,7 @@ class Boid {
     move.add(cohese);
 
     move.limit(maxSpeed);
-    
+
     shade += getAverageColor() * 0.03;
     shade += (random(2) - 1) ;
     shade = (shade + 255) % 255; //max(0, min(255, shade));
@@ -90,7 +90,7 @@ class Boid {
       } else if (other.shade - shade > 128) {
         total += other.shade - 255 - shade;
       } else {
-        total += other.shade - shade; 
+        total += other.shade - shade;
       }
       count++;
     }
@@ -159,9 +159,9 @@ class Boid {
     }
     return steer;
   }
-  
+
   PVector getCohesion () {
-   float neighbordist = 50;
+    float neighbordist = 50;
     PVector sum = new PVector(0, 0);   // Start with empty vector to accumulate all locations
     int count = 0;
     for (Boid other : friends) {
@@ -173,11 +173,10 @@ class Boid {
     }
     if (count > 0) {
       sum.div(count);
-      
+
       PVector desired = PVector.sub(sum, pos);  
       return desired.setMag(0.05);
-    } 
-    else {
+    } else {
       return new PVector(0, 0);
     }
   }
@@ -189,7 +188,28 @@ class Boid {
       //line(this.pos.x, this.pos.y, f.pos.x, f.pos.y);
     }
     noStroke();
+    fill(partHue, partSat, partBri, partAlfa);
+    pushMatrix();
+    translate(pos.x, pos.y);
+    //rotate(move.heading());
+    //beginShape();
+    //vertex(15 * globalScale, 0);
+    //vertex(-7* globalScale, 7* globalScale);
+    //vertex(-7* globalScale, -7* globalScale);
+    //endShape(CLOSE);
+    ellipse(0, 0, partSize, partSize);
+    popMatrix();
+  }
+
+  void draw0() {
+    for ( int i = 0; i < friends.size(); i++) {
+      Boid f = friends.get(i);
+      stroke(90);
+      //line(this.pos.x, this.pos.y, f.pos.x, f.pos.y);
+    }
+    noStroke();
     fill(0, 255, 255);
+    //fill(partHue, partSat, partBri, partAlfa);
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(move.heading());
