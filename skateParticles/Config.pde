@@ -32,6 +32,10 @@ boolean loadConfig() {
     partBri=config.getInt("partBri", 15);
     partAlfa=config.getInt("partAlfa", 15);
 
+    camResX=config.getInt("camResX", 640);
+    camResY=config.getInt("camResY", 480);
+    camFPS=config.getInt("camFPS", 30);
+
 
     deLog(inf, cona, "config.xml file loaded.");
 
@@ -45,6 +49,10 @@ boolean loadConfig() {
 
     deLog(inf, cona, "Background HSBA: "+backHue+" , "+backSat+" , "+backBri+" , "+backAlfa);
     deLog(inf, cona, "Particles HSBA: "+partHue+" , "+partSat+" , "+partBri+" , "+partAlfa);
+
+    deLog(inf, cona, "RealSense width: "+camResX);
+    deLog(inf, cona, "RealSense height: "+camResY);
+    deLog(inf, cona, "RealSense FPS: "+camFPS);
 
     return false;
   } else {
