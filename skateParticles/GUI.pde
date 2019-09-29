@@ -3,6 +3,9 @@ Console console;
 boolean showConsole=true;
 
 int guiX=1080;
+int pad=20;
+
+int consoleW=1920-1080;
 float consoleY=(1080/4)*3.0;
 
 PImage redCross;
@@ -10,7 +13,7 @@ boolean showPool=true;
 
 void setupGUI() {
   redCross=loadImage("cursor20.png");
-  setupConsole();
+  //setupConsole();
 }
 void setupConsole() {
   console = new Console(this);
@@ -22,13 +25,16 @@ void consOut(String input) {
 }
 void runGUI() {
   drawPool();
-  drawConsole();
-  
+  //drawConsole();
+
   //always at end
   drawCursor();
 }
 void drawConsole() {
-  console.draw(guiX, consoleY, width, height, 16, 14, 2, 0, color(220), color(0), color(255));
+  rectMode(CORNER);
+  stroke(255);
+  console.draw(1100, 0, 600, 300);
+  //  console.draw(guiX+pad, consoleY, 800, 300, 16, 14, 2, 0, color(220), color(0), color(255));
 }
 void drawCursor() {
   if (performance) {
