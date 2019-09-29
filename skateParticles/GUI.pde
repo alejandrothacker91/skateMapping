@@ -31,7 +31,7 @@ void runGUI() {
   drawConsole();
   drawSignals();
   if (frameCount%50==0) {
-    consOut("Mouse: "+mouseX+","+mouseY);
+    consOut("FPS: "+frameRate+"-Mouse: "+mouseX+","+mouseY);
   }
   //always at end
   drawCursor();

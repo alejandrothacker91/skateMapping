@@ -93,6 +93,7 @@ void fetchDepth() {
     camera.readFrames();
     camera.createDepthImage(minDepth, maxDepth);
     depthStream=camera.getDepthImage();
+    depthStream.filter(BLUR);
     //imageMode(CORNER);
     //image(depthStream, 0, 0);
   } else {
