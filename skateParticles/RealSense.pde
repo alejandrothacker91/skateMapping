@@ -63,7 +63,7 @@ void showDepth() {
   camera.createDepthImage(2000, 2400);
   image(camera.getDepthImage(), -1179, -966, poolX*scalaX, poolY*scalaX);
   filter(THRESHOLD, 0.20f);
-  filter(INVERT);
+  //filter(INVERT);
 }
 
 void fillSpaces() {
