@@ -54,6 +54,7 @@ void draw() {
   //fill(0, 255, 255);
   //ellipse(mouseX, mouseY, 10, 10);
   showTest(currTestCard);
+  showPool();
   runGUI();
 }
 

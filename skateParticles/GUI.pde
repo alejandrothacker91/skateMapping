@@ -1,12 +1,14 @@
+//cp5:
 import controlP5.*;
 ControlP5 cp5;
-Textarea myTextarea;
 //Println console;
 
 //console:
 import at.mukprojects.console.*;
 Console console;
 boolean showConsole;
+
+int showOnPool=0;
 
 int guiStartX=1090;
 int pad=20;
@@ -25,7 +27,7 @@ void setupGUI() {
 }
 
 void runGUI() {
-  drawPool();
+  drawPoolBorder();
   drawConsole();
   drawSignals();
   //always at end
@@ -42,19 +44,6 @@ void setupConsole() {
 }
 
 void setupP5() {
-  cp5 = new ControlP5(this);
-  cp5.enableShortcuts(); 
-  myTextarea = cp5.addTextarea("txt")
-    .setPosition(1200, 700)
-    .setSize(600, 300)
-    .setFont(createFont("", 14))
-    .setLineHeight(14)
-    .setColor(color(255))
-    .setColorBackground(color(0))
-    .setColorForeground(color(255, 100));
-  ;
-
-  //console = cp5.addConsole(myTextarea);///
 }
 
 void consOut(String input) {
@@ -78,7 +67,7 @@ void drawCursor() {
   }
 }
 
-void drawPool() { 
+void drawPoolBorder() { 
   if (performance) {
   } else {
     if (showPool) {
@@ -90,9 +79,24 @@ void drawPool() {
     }
   }
 }
+void showPool() {
+  if (performance) {
+  } else {
+    depthOnPool();
+  }
+}
+
+float depthScaleX=1.0f;
+float depthScaleY=1.0f;
+
+void depthOnPool() {
+  imageMode(CORNER);
+  float scale=poolX/depthStream.width;
+  image(depthStream, 0, 0, depthStream.width*scale, depthStream.height*scale);
+}
 
 void drawSignals() {
   imageMode(CORNER);
   image(depthStream, guiStartX, 0, camResX, camResY);
-  image(depthCrop, 0, 0);
+  //image(depthCrop, 0, 0);
 }
