@@ -94,4 +94,5 @@ void drawPool() {
 void drawSignals() {
   imageMode(CORNER);
   image(depthStream, guiStartX, 0, camResX, camResY);
+  image(depthCrop, 0, 0);
 }

@@ -3,7 +3,7 @@ import ch.bildspur.realsense.*;
 RealSenseCamera camera = new RealSenseCamera(this);
 
 PImage depthStream;
-PImage depthStreamCrop;
+PImage depthCrop;
 PImage error;
 
 boolean camReady=false;
@@ -18,6 +18,11 @@ int maxDepth=3000;
 
 int minThresh=50;
 int depThresh=1500;
+
+int cropX1=0;
+int cropY1=0;
+int cropX2=0;
+int cropY2=0;
 
 PImage currFrame;
 
@@ -91,8 +96,11 @@ void fetchDepth() {
     //imageMode(CORNER);
     //image(depthStream, 0, 0);
   } else {
-    //depthStream=null;
   }
+}
+
+void cropDepth() {
+  depthCrop=depthStream.get(cropX1, cropY1, cropX2-cropX1, cropY2-cropY1);
 }
 
 void showDepth0() {
