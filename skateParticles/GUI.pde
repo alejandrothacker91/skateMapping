@@ -93,22 +93,22 @@ void showPool() {
     imageMode(CORNERS);
     switch(currPoolMode) {
     case 0:
-      poolMod="NO DEPTH";
+      poolMod="DEPTH";
       break;
     case 1:
       depthOnPool();
-      poolMod="DEPTH";
+      poolMod="DEPTH CROP";
       break;
     case 2:
       depthCropOnPool();
-      poolMod="DEPTH CROP";
+      poolMod="POST-CROP";
       break;
     case 3:
       postCropOnPool();
-      poolMod="POST-CROP";
+      poolMod="NO DEPTH SHOWN";
       break;
     case 4:
-      poolMod="NO DEPTH";
+      poolMod="E";
       //postCropOnPool();
       break;
     default:

@@ -83,8 +83,8 @@ void keyPressed () {
     consOut("Toggle test card: "+currTestCard%maxCards);
   } else if (key=='d') {
     currPoolMode++;
-    //consOut("Toggle pool mode: "+currPoolMode+" - "+poolMod);
-    consOut("Toggle pool mode: "+currPoolMode+" - ");
+    consOut("Toggle pool mode: "+currPoolMode+" - "+poolMod);
+    //consOut("Toggle pool mode: "+currPoolMode+" - ");
   } else if (key=='P') {
     performance = performance ? false : true;
     consOut("Toggled performance mode to: "+performance);
