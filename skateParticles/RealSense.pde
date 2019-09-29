@@ -5,6 +5,8 @@ RealSenseCamera camera = new RealSenseCamera(this);
 PImage depthStream;
 PImage depthCrop;
 PImage postCrop;
+//PImage postCropBlur;
+//PImage postCropThresh;
 PImage error;
 
 boolean camReady=false;
