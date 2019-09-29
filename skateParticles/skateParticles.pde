@@ -19,6 +19,7 @@ int partSat=255;
 int partBri=255;
 int partAlfa=255;
 
+boolean performance=true;
 
 void settings() {
   setupLog();
@@ -32,6 +33,7 @@ void setup() {
   frameRate(fps);
   setWin();
   setupRS();
+  setupTest();
   //setupPS();
 }
 void draw() {
@@ -39,13 +41,14 @@ void draw() {
   //background(partHue, partSat, partBri, partAlfa);
   background(0);
   noStroke();
-  drawPool();
+  //drawPool();
   //drawDepth();
   //fillSpaces();
   //showDepth();
   //showCoords();
   fill(0, 255, 255);
   ellipse(mouseX, mouseY, 10, 10);
+  showTest(currTestCard);
 }
 
 void drawPool() { 
@@ -76,6 +79,7 @@ void showCoords() {
 }
 
 void mousePressed() {
+  currTestCard++;
   //deLog(inf, loga, "Program finished on purpose.");
   //exit();
   //systems.add(new ParticleSystem(1, new PVector(mouseX, mouseY)));

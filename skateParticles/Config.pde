@@ -5,6 +5,10 @@ boolean loadConfig() {
   config = loadXML("config.xml");
 
   if (config!=null) {
+
+
+    performance=boolean(config.getInt("performance", 0));
+
     fps=config.getFloat("fps", 30.0);
 
     fullScr=boolean(config.getInt("fullscreen", 0));
@@ -35,8 +39,9 @@ boolean loadConfig() {
     camResX=config.getInt("camResX", 640);
     camResY=config.getInt("camResY", 480);
     camFPS=config.getInt("camFPS", 30);
-
-
+    currTestCard=config.getInt("currTestCard", 0);
+    //end capture
+    //start delog
     deLog(inf, cona, "config.xml file loaded.");
 
     deLog(inf, cona, "FPS: "+fps);
