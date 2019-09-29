@@ -71,6 +71,7 @@ void showCoords() {
   if (frameCount%30==0) {
     println("Mouse X: "+mouseX);
     println("Mouse Y: "+mouseY);
+    println(frameRate);
   }
 }
 

@@ -60,9 +60,10 @@ float scalaX=2.890f;
 
 void showDepth() {
   camera.readFrames();
-  camera.createDepthImage(2200, 2400);
+  camera.createDepthImage(2000, 2400);
   image(camera.getDepthImage(), -1179, -966, poolX*scalaX, poolY*scalaX);
   filter(THRESHOLD, 0.20f);
+  filter(INVERT);
 }
 
 void fillSpaces() {
