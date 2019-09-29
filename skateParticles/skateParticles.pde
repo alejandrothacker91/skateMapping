@@ -36,9 +36,7 @@ void setup() {
   setupGUI();
   setupRS();
   setupTest();
-  //setupGUI();
-
-  //setupPS();
+  setupBoids();
 }
 void draw() {
   //background(backHue, backSat, backBri, backAlfa);
@@ -56,6 +54,8 @@ void draw() {
   showTest(currTestCard);
   showPool();
   runGUI();
+  
+  drawBoids();
 }
 
 void showCoords() {
