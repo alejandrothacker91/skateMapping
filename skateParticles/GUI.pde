@@ -130,15 +130,15 @@ void depthCropOnPool() {
   image(depthCrop, 0, 0);
 }
 void postCropOnPool() {
-  imageMode(CORNER);
+  imageMode(CORNERS);
   //image(depthCrop, pinCropX1, pinCropY1, pinCropX2, pinCropY2);
-  image(postCrop, 400, 400);
+  image(postCrop, pinCropX1, pinCropY1, pinCropX2, pinCropY2);
 }
 
-int pinCropX1=0;
-int pinCropY1=0;
-int pinCropX2=100;
-int pinCropY2=100;
+int pinCropX1=400;
+int pinCropY1=400;
+int pinCropX2=600;
+int pinCropY2=600;
 
 void drawSignals() {
   imageMode(CORNER);
