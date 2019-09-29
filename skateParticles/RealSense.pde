@@ -108,7 +108,7 @@ void cropDepth() {
     depthCrop=depthStream.get(cropX1, cropY1, cropX2-cropX1, cropY2-cropY1);
     postCrop=depthCrop;
     postCrop.filter(BLUR, postCropBlur);
-    //postCrop.filter(THRESHOLD, postCropThresh);
+    postCrop.filter(THRESHOLD, postCropThresh);
     //filter(BLUR, postCropBlur);
     //filter(THRESHOLD, postCropThresh);
   } else {
