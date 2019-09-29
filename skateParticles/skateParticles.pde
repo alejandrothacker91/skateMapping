@@ -57,6 +57,7 @@ void draw() {
   //  drawBoids();
   avoidPool();
   drawBoids();
+  avoids.clear();
 }
 
 void showCoords() {
@@ -110,23 +111,11 @@ void avoidPool() {
       int loc = i + j*width;
       float g = green(pixels [loc]);
       if (g>0.50f) {
-        fill(0, 255, 255, 255);
-        ellipse(i, j, 10, 10);
+        //fill(0, 255, 255, 255);
+        //ellipse(i, j, 10, 10);
+        avoids.add(new Avoid(i, j));
       }
     }
   }
   updatePixels();
-}
-
-void avoidPool0() {
-
-  for (int i=0; i<poolX; i+=partJump) {
-    for (int j=0; j<poolY; j+=partJump) {
-      int curr=get(i, j);
-      if (curr>0) {
-        fill(0, 255, 255, 255);
-        ellipse(i, j, 100, 100);
-      }
-    }
-  }
 }

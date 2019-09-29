@@ -67,7 +67,7 @@ float scaleY=1.0;
 
 int deadX=9;
 
-int partJump=10;
+int partJump=16;
 
 void drawDepth() {
   camera.readFrames();
