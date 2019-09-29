@@ -85,3 +85,14 @@ void mousePressed() {
   //systems.add(new ParticleSystem(1, new PVector(mouseX, mouseY)));
   //systems.remove(0);
 }
+
+void keyPressed () {
+  if (key == 't') {
+    //action, then console message
+    currTestCard++;
+    consOut("Toggle testCard: "+currTestCard%maxCards);
+  } else if (key=='P') {
+    performance = performance ? false : true;
+    consOut("Toggled performance mode to: "+performance);
+  }
+}
