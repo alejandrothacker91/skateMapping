@@ -1,7 +1,3 @@
-import at.mukprojects.console.*;
-Console console;
-boolean showConsole=true;
-
 int guiX=1080;
 int pad=20;
 
@@ -15,10 +11,6 @@ void setupGUI() {
   redCross=loadImage("cursor20.png");
   //setupConsole();
 }
-void setupConsole() {
-  console = new Console(this);
-  console.start();
-}
 
 void consOut(String input) {
   println(input);
@@ -29,12 +21,6 @@ void runGUI() {
 
   //always at end
   drawCursor();
-}
-void drawConsole() {
-  rectMode(CORNER);
-  stroke(255);
-  console.draw(1100, 0, 600, 300);
-  //  console.draw(guiX+pad, consoleY, 800, 300, 16, 14, 2, 0, color(220), color(0), color(255));
 }
 void drawCursor() {
   if (performance) {
