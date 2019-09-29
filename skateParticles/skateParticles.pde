@@ -80,7 +80,10 @@ void keyPressed () {
   if (key == 't') {
     //action, then console message
     currTestCard++;
-    consOut("Toggle testCard: "+currTestCard%maxCards);
+    consOut("Toggle test card: "+currTestCard%maxCards);
+  } else if (key=='d') {
+    currPoolMode++;
+    consOut("Toggle pool mode: "+currPoolMode);
   } else if (key=='P') {
     performance = performance ? false : true;
     consOut("Toggled performance mode to: "+performance);

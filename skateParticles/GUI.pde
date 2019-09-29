@@ -81,14 +81,40 @@ void drawPoolBorder() {
     }
   }
 }
+
+int currPoolMode=2;
+int poolModes=4;
+
 void showPool() {
   if (performance) {
+    //consOut("PERFORMANCE MODE");
   } else {
-    depthOnPool();
+    currPoolMode=currPoolMode%poolModes;
+    imageMode(CORNERS);
+    switch(currPoolMode) {
+    case 0:
+      break;
+    case 1:
+      depthOnPool();
+      break;
+    case 2:
+      depthCropOnPool();
+      break;
+    case 3:
+      postCropOnPool();
+      break;
+    case 4:
+      //postCropOnPool();
+      break;
+    default:
+      break;
+    }
+    imageMode(CORNER);
   }
 }
 
 float depthScale=1.0f;
+
 int depthBiasX=0;
 int depthBiasY=0;
 
@@ -98,8 +124,23 @@ void depthOnPool() {
   image(depthStream, depthBiasX, depthBiasY, depthStream.width*depthScale, depthStream.height*depthScale);
 }
 
+void depthCropOnPool() {
+  imageMode(CORNER);
+  //image(depthCrop, pinCropX1, pinCropY1, pinCropX2, pinCropY2);
+  image(depthCrop, 0, 0);
+}
+void postCropOnPool() {
+  imageMode(CORNER);
+  //image(depthCrop, pinCropX1, pinCropY1, pinCropX2, pinCropY2);
+  image(postCrop, 400, 400);
+}
+
+int pinCropX1=0;
+int pinCropY1=0;
+int pinCropX2=100;
+int pinCropY2=100;
+
 void drawSignals() {
   imageMode(CORNER);
   image(depthStream, guiStartX, 0, camResX, camResY);
-  image(depthCrop, 0,0);
 }
