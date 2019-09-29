@@ -5,8 +5,8 @@ RealSenseCamera camera = new RealSenseCamera(this);
 PImage depthStream;
 PImage depthCrop;
 PImage postCrop;
-//PImage postCropBlur;
-//PImage postCropThresh;
+PImage pCropBlur;
+PImage pCropThresh;
 PImage error;
 
 boolean camReady=false;
@@ -107,11 +107,15 @@ void cropDepth() {
   if ((cropX2>(cropX1+1))&&(cropY2>(cropY1+1))) {
     depthCrop=depthStream.get(cropX1, cropY1, cropX2-cropX1, cropY2-cropY1);
     postCrop=depthCrop;
+    postCrop.filter(BLUR, postCropBlur);
+    //postCrop.filter(THRESHOLD, postCropThresh);
+    //filter(BLUR, postCropBlur);
+    //filter(THRESHOLD, postCropThresh);
   } else {
   }
 }
 
-float postCropBlur=0.250f;
+float postCropBlur=0.0f;
 float postCropThresh=0.50f;
 
 void showDepth0() {

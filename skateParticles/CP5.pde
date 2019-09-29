@@ -28,7 +28,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("cropX1")
     .setRange(0, camResX-1)
-    .setValue(0)
+    .setValue(120)
     .setPosition(guiStartX+13*pad, guiStartY)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -37,7 +37,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("cropY1")
     .setRange(0, camResY-1)
-    .setValue(0)
+    .setValue(24)
     .setPosition(guiStartX+18*pad, guiStartY)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -45,7 +45,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("cropX2")
     .setRange(0, camResX-1)
-    .setValue(100)
+    .setValue(313)
     .setPosition(guiStartX+24*pad, guiStartY)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -53,7 +53,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("cropY2")
     .setRange(0, camResY-1)
-    .setValue(100)
+    .setValue(206)
     .setPosition(guiStartX+29*pad, guiStartY)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -80,7 +80,7 @@ void setupP5() {
     .setSize(800, 40)
     .setHandleSize(20)
     .setRange(minDepth, maxDepth)
-    .setRangeValues(minDepth, maxDepth)
+    .setRangeValues(1490, 1520)
     // after the initialization we turn broadcast back on again
     .setBroadcast(true)
     .setColorForeground(color(255, 40))
@@ -123,7 +123,7 @@ void setupP5() {
 
   //blur+thresh
   myKnobA = cp5.addKnob("postCropBlur")
-    .setRange(0.0f, 1.0f)
+    .setRange(0.0f, 12.0f)
     .setValue(0.0f)
     .setPosition(guiStartX+13*pad, guiStartY+15*pad)
     .setRadius(40)
