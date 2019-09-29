@@ -8,7 +8,7 @@ import at.mukprojects.console.*;
 Console console;
 boolean showConsole;
 
-int guiX=1080;
+int guiStartX=1090;
 int pad=20;
 
 int consoleW=1920-1080;
@@ -61,7 +61,7 @@ void consOut(String input) {
   println(input);
 }
 void drawConsole() {  // Draw the console to the screen.
-  console.draw(1090, height-200, width, height, 22, 20, 4, 4, color(128), color(30), color(255));
+  console.draw(guiStartX, height-200, width, height, 22, 20, 4, 4, color(128), color(30), color(255));
 
   showConsole = true;
   // Print the console to the system out.
@@ -93,5 +93,5 @@ void drawPool() {
 
 void drawSignals() {
   imageMode(CORNER);
-  image(depthStream, 1090, 0, camResX, camResY);
+  image(depthStream, guiStartX, 0, camResX, camResY);
 }
