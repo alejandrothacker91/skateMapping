@@ -11,7 +11,7 @@ void setupTest() {
 int currTestCard=0;
 void showTest(int input) {
   if (performance) {
-    consOut("PERFORMANCE MODE");
+    //consOut("PERFORMANCE MODE");
   } else {
 
     input=input%maxCards;

@@ -34,21 +34,24 @@ void setup() {
   setWin();
   setupRS();
   setupTest();
+  setupGUI();
+
   //setupPS();
 }
 void draw() {
   //background(backHue, backSat, backBri, backAlfa);
   //background(partHue, partSat, partBri, partAlfa);
   background(0);
-  noStroke();
+  //noStroke();
   //drawPool();
   //drawDepth();
   //fillSpaces();
   //showDepth();
   //showCoords();
-  fill(0, 255, 255);
-  ellipse(mouseX, mouseY, 10, 10);
+  //fill(0, 255, 255);
+  //ellipse(mouseX, mouseY, 10, 10);
   showTest(currTestCard);
+  runGUI();
 }
 
 void drawPool() { 
