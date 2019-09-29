@@ -39,7 +39,7 @@ boolean loadConfig() {
     camResX=config.getInt("camResX", 640);
     camResY=config.getInt("camResY", 480);
     camFPS=config.getInt("camFPS", 30);
-    currTestCard=config.getInt("currTestCard", 0);
+    currTestCard=config.getInt("currTestCard", 1);
     //end capture
     //start delog
     deLog(inf, cona, "config.xml file loaded.");

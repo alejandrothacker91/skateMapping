@@ -65,7 +65,7 @@ void showCoords() {
 }
 
 void mousePressed() {
-  currTestCard++;
+  //currTestCard++;
   //deLog(inf, loga, "Program finished on purpose.");
   //exit();
   //systems.add(new ParticleSystem(1, new PVector(mouseX, mouseY)));

@@ -8,12 +8,12 @@ void setupTest() {
   blackShark=loadImage("blackShark.bmp");
   whiteShark=loadImage("whiteShark.bmp");
 }
-int currTestCard=0;
+int currTestCard=1;
+
 void showTest(int input) {
   if (performance) {
     //consOut("PERFORMANCE MODE");
   } else {
-
     input=input%maxCards;
     imageMode(CORNERS);
     switch(input) {
