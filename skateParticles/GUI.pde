@@ -61,7 +61,7 @@ void consOut(String input) {
   println(input);
 }
 void drawConsole() {  // Draw the console to the screen.
-  console.draw(1100, height-200, width, height, 26, 24, 4, 4, color(128), color(30), color(255));
+  console.draw(1100, height-200, width, height, 22, 20, 4, 4, color(128), color(30), color(255));
 
   showConsole = true;
   // Print the console to the system out.

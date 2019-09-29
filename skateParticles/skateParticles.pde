@@ -32,9 +32,11 @@ void setup() {
   colorMode(HSB, 360, 255, 255, 255);
   frameRate(fps);
   setWin();
+
+  setupGUI();
   setupRS();
   setupTest();
-  setupGUI();
+  //setupGUI();
 
   //setupPS();
 }
@@ -85,6 +87,7 @@ void keyPressed () {
     consOut("Show pool: "+showPool);
   } else if (key=='E') {
     consOut("Exit on purpose.");
+    //delay(1000);
     exit();
   }
 }

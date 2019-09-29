@@ -19,7 +19,21 @@ void setupRS()
 {
   // width, height, fps, depth-stream, color-stream
   //camera.start(640, 480, 30, true, false);
-  camera.start(camResX, camResY, camFPS, depStream, colStream);
+
+  consOut("Searching for RealSense camera.");
+  if (camera.isCameraAvailable()) {
+    consOut("Camera detected.");
+    consOut("Attempting to start RealSense camera.");
+    camera.start(camResX, camResY, camFPS, depStream, colStream);
+    if (camera.isRunning()) {
+      consOut("RealSense camera started.");
+    } else {
+      consOut("Unable to start RealSense camera.");
+    }
+  } else {
+    //consOut("Unable to start RealSense camera.");
+    consOut("Camera NOT detected.");
+  }
 
   scaleX=poolX/camResX;//1080
   scaleY=poolY/camResY;//1080

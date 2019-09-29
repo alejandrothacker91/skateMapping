@@ -1,2 +1,2 @@
-<config performance="0" fps="30.0" fullscreen="1" displayNum="1" windowX="1920" windowY="1080" viewportX="1599" viewportY="-26" poolX="1080" poolY="1080" partSize="5" backHue="0" backSat="255" backBri="0" backAlfa="255" partHue="180"  partSat="255" partBri="255" partAlfa="255" camResX="424" camResY="240" camFPS="30" currTestCard="1">
+<config performance="0" fps="30.0" fullscreen="1" displayNum="1" windowX="1920" windowY="1080" viewportX="1599" viewportY="-26" poolX="1080" poolY="1080" partSize="5" backHue="0" backSat="255" backBri="0" backAlfa="255" partHue="180"  partSat="255" partBri="255" partAlfa="255" camResX="424" camResY="240" camFPS="30" currTestCard="0">
 </config>
