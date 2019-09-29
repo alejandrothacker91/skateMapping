@@ -48,7 +48,7 @@ void draw() {
   //drawPool();
   //drawDepth();
   //fillSpaces();
-  //showDepth();
+  showDepth();
   //showCoords();
   //fill(0, 255, 255);
   //ellipse(mouseX, mouseY, 10, 10);

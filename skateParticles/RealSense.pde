@@ -2,12 +2,15 @@ import ch.bildspur.realsense.*;
 
 RealSenseCamera camera = new RealSenseCamera(this);
 
+PImage depthStream;
+PImage depthStreamCrop;
+
 int camResX=640;
 int camResY=480;
 int camFPS=30;
 boolean depStream=true;
 boolean colStream=false;
-int minDepth=0;
+int minDepth=500;
 int maxDepth=3000;
 
 int minThresh=50;
@@ -73,6 +76,14 @@ void drawDepth() {
 float scalaX=2.890f;
 
 void showDepth() {
+  camera.readFrames();
+  camera.createDepthImage(minDepth, maxDepth);
+  depthStream=camera.getDepthImage();
+  imageMode(CORNER);
+  image(depthStream, 0, 0);
+}
+
+void showDepth0() {
   camera.readFrames();
   camera.createDepthImage(2000, 2400);
   image(camera.getDepthImage(), -1179, -966, poolX*scalaX, poolY*scalaX);
