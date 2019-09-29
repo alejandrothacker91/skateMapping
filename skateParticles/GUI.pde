@@ -53,7 +53,7 @@ void setupP5() {
 
   // add a horizontal sliders, the value of this slider will be linked
   // to variable 'sliderValue' 
-  cp5.addSlider("depthScaleX")
+  cp5.addSlider("depthScale")
     .setPosition(guiStartX, 260)
     .setRange(1.0f, 3.0f)
     .setSize(16, 240)
@@ -100,13 +100,13 @@ void showPool() {
   }
 }
 
-float depthScaleX=1.0f;
+float depthScale=1.0f;
 float depthScaleY=1.0f;
 
 void depthOnPool() {
   imageMode(CORNER);
   float scale=poolX/depthStream.width;
-  image(depthStream, 0, 0, depthStream.width*depthScaleX, depthStream.height*depthScaleX);
+  image(depthStream, 0, 0, depthStream.width*depthScale, depthStream.height*depthScale);
 }
 
 void drawSignals() {
