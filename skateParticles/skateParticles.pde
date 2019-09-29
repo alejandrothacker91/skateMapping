@@ -42,8 +42,8 @@ void draw() {
   drawPool();
   //drawDepth();
   //fillSpaces();
-  showDepth();
-  showCoords();
+  //showDepth();
+  //showCoords();
   fill(0, 255, 255);
   ellipse(mouseX, mouseY, 10, 10);
 }
@@ -76,8 +76,8 @@ void showCoords() {
 }
 
 void mousePressed() {
-  deLog(inf, loga, "Program finished on purpose.");
-  exit();
+  //deLog(inf, loga, "Program finished on purpose.");
+  //exit();
   //systems.add(new ParticleSystem(1, new PVector(mouseX, mouseY)));
   //systems.remove(0);
 }
