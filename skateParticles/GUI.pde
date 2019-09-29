@@ -1,7 +1,5 @@
 //cp5:
-import controlP5.*;
-ControlP5 cp5;
-int myColor = color(0, 0, 0);
+
 //Println console;
 
 //console:
@@ -12,6 +10,7 @@ boolean showConsole;
 int showOnPool=0;
 
 int guiStartX=1090;
+int guiStartY=260;
 int pad=20;
 
 int consoleW=1920-1080;
@@ -47,18 +46,7 @@ void setupConsole() {
   showConsole = true;
 }
 
-void setupP5() {  
-  noStroke();
-  cp5 = new ControlP5(this);
 
-  // add a horizontal sliders, the value of this slider will be linked
-  // to variable 'sliderValue' 
-  cp5.addSlider("depthScale")
-    .setPosition(guiStartX, 260)
-    .setRange(1.0f, 3.0f)
-    .setSize(16, 240)
-    ;
-}
 
 void consOut(String input) {
   println(input);
@@ -101,12 +89,13 @@ void showPool() {
 }
 
 float depthScale=1.0f;
-float depthScaleY=1.0f;
+int depthBiasX=0;
+int depthBiasY=0;
 
 void depthOnPool() {
   imageMode(CORNER);
   float scale=poolX/depthStream.width;
-  image(depthStream, 0, 0, depthStream.width*depthScale, depthStream.height*depthScale);
+  image(depthStream, depthBiasX, depthBiasY, depthStream.width*depthScale, depthStream.height*depthScale);
 }
 
 void drawSignals() {
