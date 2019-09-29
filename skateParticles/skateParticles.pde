@@ -56,6 +56,7 @@ void draw() {
   runGUI();
   //  drawBoids();
   avoidPool();
+  drawBoids();
 }
 
 void showCoords() {
@@ -101,6 +102,9 @@ int avoidJump=10;
 
 void avoidPool() {
   loadPixels();
+  noStroke();
+  fill(0);
+  rect(0, 0, poolX, poolY);
   for (int i=0; i<poolX; i+=partJump) {
     for (int j=0; j<poolY; j+=partJump) {
       int loc = i + j*width;
