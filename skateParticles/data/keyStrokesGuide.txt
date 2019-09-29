@@ -1,1 +1,3 @@
-Keyboard Manual
+Keystrokes Guide
+t	toggle test card
+P	toggle performance mode
