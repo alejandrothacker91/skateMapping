@@ -84,7 +84,7 @@ void drawPoolBorder() {
 
 int currPoolMode=2;
 int poolModes=4;
-
+String poolMod="";
 void showPool() {
   if (performance) {
     //consOut("PERFORMANCE MODE");
@@ -93,17 +93,22 @@ void showPool() {
     imageMode(CORNERS);
     switch(currPoolMode) {
     case 0:
+      poolMod="NO DEPTH";
       break;
     case 1:
       depthOnPool();
+      poolMod="DEPTH";
       break;
     case 2:
       depthCropOnPool();
+      poolMod="DEPTH CROP";
       break;
     case 3:
       postCropOnPool();
+      poolMod="POST-CROP";
       break;
     case 4:
+      poolMod="NO DEPTH";
       //postCropOnPool();
       break;
     default:
@@ -132,13 +137,13 @@ void depthCropOnPool() {
 void postCropOnPool() {
   imageMode(CORNERS);
   //image(depthCrop, pinCropX1, pinCropY1, pinCropX2, pinCropY2);
-  image(postCrop, pinCropX1, pinCropY1, pinCropX2, pinCropY2);
+  image(postCrop, postCropX1, postCropY1, postCropX2, postCropY2);
 }
 
-int pinCropX1=400;
-int pinCropY1=400;
-int pinCropX2=600;
-int pinCropY2=600;
+int postCropX1=400;
+int postCropY1=400;
+int postCropX2=600;
+int postCropY2=600;
 
 void drawSignals() {
   imageMode(CORNER);
