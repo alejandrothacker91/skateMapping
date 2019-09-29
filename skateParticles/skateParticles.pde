@@ -54,8 +54,8 @@ void draw() {
   showTest(currTestCard);
   showPool();
   runGUI();
-  
-  drawBoids();
+  //  drawBoids();
+  avoidPool();
 }
 
 void showCoords() {
@@ -95,5 +95,34 @@ void keyPressed () {
     consOut("Exit on purpose.");
     //delay(1000);
     exit();
+  }
+}
+int avoidJump=10;
+
+void avoidPool() {
+  loadPixels();
+  for (int i=0; i<poolX; i+=partJump) {
+    for (int j=0; j<poolY; j+=partJump) {
+      int loc = i + j*width;
+      float g = green(pixels [loc]);
+      if (g>0.50f) {
+        fill(0, 255, 255, 255);
+        ellipse(i, j, 10, 10);
+      }
+    }
+  }
+  updatePixels();
+}
+
+void avoidPool0() {
+
+  for (int i=0; i<poolX; i+=partJump) {
+    for (int j=0; j<poolY; j+=partJump) {
+      int curr=get(i, j);
+      if (curr>0) {
+        fill(0, 255, 255, 255);
+        ellipse(i, j, 100, 100);
+      }
+    }
   }
 }
