@@ -54,13 +54,6 @@ void draw() {
   runGUI();
 }
 
-void drawPool() { 
-  fill(0, 0);
-  stroke(0, 255, 255, 255);
-  strokeWeight(5);
-  rect(0, 0, poolX, poolY);
-  strokeWeight(1);
-}
 
 void setPool() {
   poolX=1+mouseX;
@@ -97,5 +90,11 @@ void keyPressed () {
   } else if (key=='P') {
     performance = performance ? false : true;
     consOut("Toggled performance mode to: "+performance);
+  } else if (key=='p') {
+    showPool = showPool ? false : true;
+    consOut("Show pool: "+showPool);
+  } else if (key=='E') {
+    consOut("Exit on purpose.");
+    exit();
   }
 }

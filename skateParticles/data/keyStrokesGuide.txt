@@ -1,3 +1,5 @@
 Keystrokes Guide
 t	toggle test card
+p	toggle show pool
 P	toggle performance mode
+E	exit
