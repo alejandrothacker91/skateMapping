@@ -1,6 +1,7 @@
 //cp5:
 import controlP5.*;
 ControlP5 cp5;
+int myColor = color(0, 0, 0);
 //Println console;
 
 //console:
@@ -23,13 +24,16 @@ boolean showPool=true;
 void setupGUI() {
   redCross=loadImage("cursor20.png");
   setupConsole();
-  //setupP5();
+  setupP5();
 }
 
 void runGUI() {
   drawPoolBorder();
   drawConsole();
   drawSignals();
+  if (frameCount%50==0) {
+    consOut("Mouse: "+mouseX+","+mouseY);
+  }
   //always at end
   drawCursor();
 }
@@ -43,7 +47,17 @@ void setupConsole() {
   showConsole = true;
 }
 
-void setupP5() {
+void setupP5() {  
+  noStroke();
+  cp5 = new ControlP5(this);
+
+  // add a horizontal sliders, the value of this slider will be linked
+  // to variable 'sliderValue' 
+  cp5.addSlider("depthScaleX")
+    .setPosition(guiStartX, 260)
+    .setRange(1.0f, 3.0f)
+    .setSize(16, 240)
+    ;
 }
 
 void consOut(String input) {
@@ -92,7 +106,7 @@ float depthScaleY=1.0f;
 void depthOnPool() {
   imageMode(CORNER);
   float scale=poolX/depthStream.width;
-  image(depthStream, 0, 0, depthStream.width*scale, depthStream.height*scale);
+  image(depthStream, 0, 0, depthStream.width*depthScaleX, depthStream.height*depthScaleX);
 }
 
 void drawSignals() {
