@@ -19,13 +19,45 @@ void setupP5() {
    ;
    */
   myKnobA = cp5.addKnob("depthScale")
-    .setRange(1.0f, 3.0f)
+    .setRange(0.0010f, 3.0f)
     .setValue(1.50f)
     .setPosition(guiStartX+pad, guiStartY)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
     ;
 
+  myKnobA = cp5.addKnob("cropX1")
+    .setRange(0, camResX-1)
+    .setValue(0)
+    .setPosition(guiStartX+13*pad, guiStartY)
+    .setRadius(40)
+    .setDragDirection(Knob.VERTICAL)
+    ;
+
+
+  myKnobA = cp5.addKnob("cropY1")
+    .setRange(0, camResY-1)
+    .setValue(0)
+    .setPosition(guiStartX+18*pad, guiStartY)
+    .setRadius(40)
+    .setDragDirection(Knob.VERTICAL)
+    ;
+
+  myKnobA = cp5.addKnob("cropX2")
+    .setRange(0, camResX-1)
+    .setValue(100)
+    .setPosition(guiStartX+24*pad, guiStartY)
+    .setRadius(40)
+    .setDragDirection(Knob.VERTICAL)
+    ;
+
+  myKnobA = cp5.addKnob("cropY2")
+    .setRange(0, camResY-1)
+    .setValue(100)
+    .setPosition(guiStartX+29*pad, guiStartY)
+    .setRadius(40)
+    .setDragDirection(Knob.VERTICAL)
+    ;
 
   cp5.addNumberbox("depthBiasX")
     .setPosition(guiStartX+6*pad, guiStartY+pad)

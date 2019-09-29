@@ -101,7 +101,10 @@ void fetchDepth() {
 }
 
 void cropDepth() {
-  depthCrop=depthStream.get(cropX1, cropY1, cropX2-cropX1, cropY2-cropY1);
+  if ((cropX2>(cropX1+1))&&(cropY2>(cropY1+1))) {
+    depthCrop=depthStream.get(cropX1, cropY1, cropX2-cropX1, cropY2-cropY1);
+  } else {
+  }
 }
 
 void showDepth0() {

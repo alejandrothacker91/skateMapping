@@ -101,5 +101,5 @@ void depthOnPool() {
 void drawSignals() {
   imageMode(CORNER);
   image(depthStream, guiStartX, 0, camResX, camResY);
-  //image(depthCrop, 0, 0);
+  image(depthCrop, 0,0);
 }
