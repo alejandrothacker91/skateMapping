@@ -111,6 +111,9 @@ void cropDepth() {
   }
 }
 
+float postCropBlur=0.250f;
+float postCropThresh=0.50f;
+
 void showDepth0() {
   camera.readFrames();
   camera.createDepthImage(2000, 2400);
