@@ -3,6 +3,11 @@ ControlP5 cp5;
 Textarea myTextarea;
 //Println console;
 
+//console:
+import at.mukprojects.console.*;
+Console console;
+boolean showConsole;
+
 int guiX=1080;
 int pad=20;
 
@@ -12,10 +17,30 @@ float consoleY=(1080/4)*3.0;
 PImage redCross;
 boolean showPool=true;
 
+//---------------------
 void setupGUI() {
   redCross=loadImage("cursor20.png");
+  setupConsole();
   //setupP5();
 }
+
+void runGUI() {
+  drawPool();
+  drawConsole();
+
+  //always at end
+  drawCursor();
+}
+//--------------------
+
+
+void setupConsole() {
+  console = new Console(this);
+  // Start the console
+  console.start();
+  showConsole = true;
+}
+
 void setupP5() {
   cp5 = new ControlP5(this);
   cp5.enableShortcuts(); 
@@ -35,13 +60,14 @@ void setupP5() {
 void consOut(String input) {
   println(input);
 }
-void runGUI() {
-  drawPool();
-  //drawConsole();
+void drawConsole() {  // Draw the console to the screen.
+  console.draw(1100, height-200, width, height, 26, 24, 4, 4, color(128), color(30), color(255));
 
-  //always at end
-  drawCursor();
+  showConsole = true;
+  // Print the console to the system out.
+  console.print();
 }
+
 void drawCursor() {
   if (performance) {
     noCursor();
