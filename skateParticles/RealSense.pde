@@ -4,6 +4,9 @@ RealSenseCamera camera = new RealSenseCamera(this);
 
 PImage depthStream;
 PImage depthStreamCrop;
+PImage error;
+
+boolean camReady=false;
 
 int camResX=640;
 int camResY=480;
@@ -22,7 +25,8 @@ void setupRS()
 {
   // width, height, fps, depth-stream, color-stream
   //camera.start(640, 480, 30, true, false);
-
+  error=loadImage("errorX.png");
+  depthStream=error;
   consOut("Searching for RealSense camera.");
   if (camera.isCameraAvailable()) {
     consOut("Camera detected.");
@@ -30,11 +34,15 @@ void setupRS()
     camera.start(camResX, camResY, camFPS, depStream, colStream);
     if (camera.isRunning()) {
       consOut("RealSense camera started.");
+      camReady=true;
     } else {
+      depthStream=error;
+      camReady=false;
       consOut("Unable to start RealSense camera.");
     }
   } else {
-    //consOut("Unable to start RealSense camera.");
+    depthStream=error;
+    camReady=false;
     consOut("Camera NOT detected.");
   }
 
@@ -75,12 +83,16 @@ void drawDepth() {
 }
 float scalaX=2.890f;
 
-void showDepth() {
-  camera.readFrames();
-  camera.createDepthImage(minDepth, maxDepth);
-  depthStream=camera.getDepthImage();
-  imageMode(CORNER);
-  image(depthStream, 0, 0);
+void fetchDepth() {
+  if (camReady) {
+    camera.readFrames();
+    camera.createDepthImage(minDepth, maxDepth);
+    depthStream=camera.getDepthImage();
+    //imageMode(CORNER);
+    //image(depthStream, 0, 0);
+  } else {
+    //depthStream=null;
+  }
 }
 
 void showDepth0() {

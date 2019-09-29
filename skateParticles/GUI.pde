@@ -27,7 +27,7 @@ void setupGUI() {
 void runGUI() {
   drawPool();
   drawConsole();
-
+  drawSignals();
   //always at end
   drawCursor();
 }
@@ -89,4 +89,9 @@ void drawPool() {
       strokeWeight(1);
     }
   }
+}
+
+void drawSignals() {
+  imageMode(CORNER);
+  image(depthStream, 1090, 0, camResX, camResY);
 }
