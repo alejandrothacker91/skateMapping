@@ -1,8 +1,17 @@
+import at.mukprojects.console.*;
+Console console;
+boolean showConsole=true;
+
 PImage redCross;
 boolean showPool=true;
 
 void setupGUI() {
   redCross=loadImage("cursor20.png");
+  setupConsole();
+}
+void setupConsole() {
+  console = new Console(this);
+  console.start();
 }
 
 void consOut(String input) {
