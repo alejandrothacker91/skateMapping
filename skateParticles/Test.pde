@@ -20,13 +20,13 @@ void showTest(int input) {
     case 0:
       break;
     case 1:
-      image(testCard, 0, 0, poolX, poolX);
+      image(testCard, 0, 0, poolX, poolY);
       break;
     case 2:
-      image(blackShark, 0, 0, poolX, poolX);
+      image(blackShark, 0, 0, poolX, poolY);
       break;
     case 3:
-      image(whiteShark, 0, 0, poolX, poolX);
+      image(whiteShark, 0, 0, poolX, poolY);
       break;
     default:
       break;

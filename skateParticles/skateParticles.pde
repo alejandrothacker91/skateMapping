@@ -54,16 +54,6 @@ void draw() {
   runGUI();
 }
 
-
-void setPool() {
-  poolX=1+mouseX;
-  poolY=1+mouseY;
-  if (frameCount%30==0) {
-    println("PoolX: "+poolX);
-    println("PoolY: "+poolY);
-  }
-}
-
 void showCoords() {
   //poolX=1+mouseX;
   //poolY=1+mouseY;

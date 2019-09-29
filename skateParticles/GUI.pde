@@ -2,6 +2,9 @@ import at.mukprojects.console.*;
 Console console;
 boolean showConsole=true;
 
+int guiX=1080;
+float consoleY=(1080/4)*3.0;
+
 PImage redCross;
 boolean showPool=true;
 
@@ -18,10 +21,15 @@ void consOut(String input) {
   println(input);
 }
 void runGUI() {
-  drawCursor();
   drawPool();
+  drawConsole();
+  
+  //always at end
+  drawCursor();
 }
-
+void drawConsole() {
+  console.draw(guiX, consoleY, width, height, 16, 14, 2, 0, color(220), color(0), color(255));
+}
 void drawCursor() {
   if (performance) {
     noCursor();
@@ -31,7 +39,6 @@ void drawCursor() {
     imageMode(CORNER);
   }
 }
-
 
 void drawPool() { 
   if (performance) {
