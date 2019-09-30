@@ -31,7 +31,7 @@ void runGUI() {
   drawConsole();
   drawSignals();
   if (frameCount%50==0) {
-    consOut("FPS: "+frameRate+"-Mouse: "+mouseX+","+mouseY);
+    //consOut("FPS: "+frameRate+"-Mouse: "+mouseX+","+mouseY);
   }
   //always at end
   drawCursor();
@@ -92,22 +92,33 @@ void showPool() {
     currPoolMode=currPoolMode%poolModes;
     imageMode(CORNERS);
     switch(currPoolMode) {
+      //poolMod Strings are defased from the real mode
     case 0:
+      //show nthn
+      postCropFilters=false;
       poolMod="DEPTH";
       break;
     case 1:
+      //show depth
+      postCropFilters=false;
       depthOnPool();
       poolMod="DEPTH CROP";
       break;
     case 2:
+      //show crop
+      postCropFilters=false;
       depthCropOnPool();
       poolMod="POST-CROP";
       break;
     case 3:
+      //show POST crop
+      postCropFilters=true;
       postCropOnPool();
       poolMod="NO DEPTH SHOWN";
       break;
     case 4:
+      //show nthn
+      postCropFilters=false;
       poolMod="E";
       //postCropOnPool();
       break;

@@ -119,8 +119,6 @@ void cropDepth() {
       postCrop.filter(THRESHOLD, postCropThresh);
     } else {
     }
-    //filter(BLUR, postCropBlur);
-    //filter(THRESHOLD, postCropThresh);
   } else {
   }
 }
