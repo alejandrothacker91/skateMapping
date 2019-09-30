@@ -79,13 +79,16 @@ void setupP5() {
     .setPosition(guiStartX, guiStartY+6*pad)
     .setSize(800, 40)
     .setHandleSize(20)
+    //.setRange(setMinDepth, setMaxDepth)
+    //.setRangeValues(minDepth, maxDepth)
     .setRange(minDepth, maxDepth)
-    .setRangeValues(1490, 1520)
+    .setRangeValues(setMinDepth, setMaxDepth)
     // after the initialization we turn broadcast back on again
     .setBroadcast(true)
     .setColorForeground(color(255, 40))
     .setColorBackground(color(255, 40))  
     ;
+
 
   //--POST CROP
 

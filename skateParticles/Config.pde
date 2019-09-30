@@ -44,9 +44,12 @@ boolean loadConfig() {
     minDepth=config.getInt("minDepth", 1000);
     maxDepth=config.getInt("maxDepth", 3000);
 
+    setMinDepth=config.getInt("setMinDepth", 1000);
+    setMaxDepth=config.getInt("setMaxDepth", 3000);
+
     cropX1=config.getInt("cropX1", 0);
     cropY1=config.getInt("cropY1", 0);
-    
+
     cropX2=config.getInt("cropX2", 0);
     cropY2=config.getInt("cropY2", 0);
 
