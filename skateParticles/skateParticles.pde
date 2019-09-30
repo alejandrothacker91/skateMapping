@@ -27,24 +27,6 @@ void settings() {
   fullWin();
 }
 
-void setup() {
-  colorMode(HSB, 360, 255, 255, 255);
-  frameRate(fps);
-  setWin();
-  setupGUI();
-  setupRS();
-  setupTest();
-}
-void draw() {
-  background(0);
-  fetchDepth();
-  cropDepth();
-  showTest(currTestCard);
-  showPool();
-  runGUI();
-  //scanPool();
-}
-
 void showCoords() {
   //poolX=1+mouseX;
   //poolY=1+mouseY;
@@ -104,4 +86,23 @@ void scanPool() {
     }
   }
   updatePixels();
+}
+
+//ONLY SETUP AND DRAW
+void setup() {
+  colorMode(HSB, 360, 255, 255, 255);
+  frameRate(fps);
+  setWin();
+  setupGUI();
+  setupRS();
+  setupTest();
+}
+void draw() {
+  background(0);
+  fetchDepth();
+  cropDepth();
+  showTest(currTestCard);
+  showPool();
+  runGUI();
+  //scanPool();
 }

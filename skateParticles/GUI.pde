@@ -82,7 +82,7 @@ void drawPoolBorder() {
   }
 }
 
-int currPoolMode=1;
+int currPoolMode=3;
 int poolModes=4;
 String poolMod="";
 void showPool() {
