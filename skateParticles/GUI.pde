@@ -33,6 +33,7 @@ void runGUI() {
   if (frameCount%50==0) {
     //consOut("FPS: "+frameRate+"-Mouse: "+mouseX+","+mouseY);
   }
+  updateCP5();
   //always at end
   drawCursor();
 }

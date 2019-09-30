@@ -4,7 +4,8 @@ int myColor = color(0, 0, 0);
 
 Knob myKnobA;
 Range range;
-
+Textlabel myTextlabelA;
+Textlabel myTextlabelB;
 void setupP5() {  
   noStroke();
   cp5 = new ControlP5(this);
@@ -140,6 +141,22 @@ void setupP5() {
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
     ;
+
+  //txt labels
+  myTextlabelA = cp5.addTextlabel("frmRt")
+    .setText("FPS:  "+nf(frameRate, 2, 2))
+    .setPosition(guiStartX, guiStartY+28*pad)
+    .setColorValue(0xffffff00)
+    .setFont(createFont("Arial", 20))
+    ;
+
+  myTextlabelB = cp5.addTextlabel("cursorPos")
+    .setText("Cursor: ("+mouseX+","+mouseY+")")
+    .setPosition(guiStartX+6*pad, guiStartY+28*pad)
+    .setColorValue(color(255))
+    .setFont(createFont("Arial", 20))
+    ;
+
   //end of setup
 }
 
@@ -152,4 +169,9 @@ void controlEvent(ControlEvent theControlEvent) {
     setMaxDepth = int(theControlEvent.getController().getArrayValue(1));
     println("range update, done.");
   }
+}
+
+void updateCP5() {
+  myTextlabelA.setText("FPS:  "+nf(frameRate, 2, 2));
+  myTextlabelB.setText("Cursor: ("+mouseX+","+mouseY+")");
 }
