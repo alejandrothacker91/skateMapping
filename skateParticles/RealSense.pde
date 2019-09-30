@@ -41,7 +41,7 @@ void setupRS()
     consOut("Attempting to start RealSense camera.");
     camera.start(camResX, camResY, camFPS, depStream, colStream);
     if (camera.isRunning()) {
-      consOut("RealSense camera started.");
+      consOut("RealSense camera started with "+camResX+" X "+camResY+" resolution at "+camFPS+" FPS.");
       camReady=true;
     } else {
       depthStream=error;
