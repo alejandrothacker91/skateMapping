@@ -16,8 +16,11 @@ int camResY=480;
 int camFPS=30;
 boolean depStream=true;
 boolean colStream=false;
-int minDepth=500;
+int minDepth=100;
 int maxDepth=3000;
+
+int setMinDepth=100;
+int setMaxDepth=3000;
 
 int minThresh=50;
 int depThresh=1500;
