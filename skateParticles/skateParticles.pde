@@ -28,36 +28,21 @@ void settings() {
 }
 
 void setup() {
-  //size(640, 480, P3D);
   colorMode(HSB, 360, 255, 255, 255);
   frameRate(fps);
   setWin();
-
   setupGUI();
   setupRS();
   setupTest();
-  //setupBoids();
 }
 void draw() {
-  //background(backHue, backSat, backBri, backAlfa);
-  //background(partHue, partSat, partBri, partAlfa);
   background(0);
-  //noStroke();
-  //drawPool();
-  //drawDepth();
-  //fillSpaces();
   fetchDepth();
   cropDepth();
-  //showCoords();
-  //fill(0, 255, 255);
-  //ellipse(mouseX, mouseY, 10, 10);
   showTest(currTestCard);
   showPool();
   runGUI();
-  //  drawBoids();
-  //avoidPool();
-  //drawBoids();
-  //avoids.clear();
+  //scanPool();
 }
 
 void showCoords() {
@@ -103,7 +88,7 @@ void keyPressed () {
 int avoidJump=10;
 
 
-void avoidPool() {
+void scanPool() {
   loadPixels();
   noStroke();
   fill(0);
