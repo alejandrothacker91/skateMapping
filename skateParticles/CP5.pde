@@ -3,9 +3,13 @@ ControlP5 cp5;
 int myColor = color(0, 0, 0);
 
 Knob myKnobA;
+
 Range range;
+
 Textlabel myTextlabelA;
 Textlabel myTextlabelB;
+Textlabel myTextlabelC;
+
 void setupP5() {  
   noStroke();
   cp5 = new ControlP5(this);
@@ -127,7 +131,7 @@ void setupP5() {
 
   //blur+thresh
   myKnobA = cp5.addKnob("postCropBlur")
-    .setRange(0.0f, 12.0f)
+    .setRange(0.0f, 3.0f)
     .setValue(config.getFloat("postCropBlur", 3.0f))
     .setPosition(guiStartX+13*pad, guiStartY+15*pad)
     .setRadius(40)
@@ -157,8 +161,20 @@ void setupP5() {
     .setFont(createFont("Arial", 20))
     ;
 
+
+  myTextlabelC = cp5.addTextlabel("cursorRGB")
+    .setText("RGB: ("+cursorRed+","+cursorGreen+","+cursorBlue+")")
+    .setPosition(guiStartX+16*pad, guiStartY+28*pad)
+    .setColorValue(color(255))
+    .setFont(createFont("Arial", 20))
+    ;
+
   //end of setup
 }
+
+int cursorRed=0;
+int cursorGreen=0;
+int cursorBlue=0;
 
 void controlEvent(ControlEvent theControlEvent) {
   if (theControlEvent.isFrom("rangeController")) {
@@ -172,6 +188,16 @@ void controlEvent(ControlEvent theControlEvent) {
 }
 
 void updateCP5() {
+  getCursorRGB();
   myTextlabelA.setText("FPS:  "+nf(frameRate, 2, 2));
   myTextlabelB.setText("Cursor: ("+mouseX+","+mouseY+")");
+  myTextlabelC.setText("RGB: ("+cursorRed+","+cursorGreen+","+cursorBlue+")");
+}
+
+void getCursorRGB() {
+  color currCol=get(mouseX, mouseY);
+
+  cursorRed = (currCol >> 16) & 0xFF;
+  cursorGreen = (currCol >> 8) & 0xFF;
+  cursorBlue = currCol  & 0xFF;
 }

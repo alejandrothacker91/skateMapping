@@ -70,6 +70,7 @@ void keyPressed () {
 int avoidJump=10;
 
 
+
 void scanPool() {
   loadPixels();
   noStroke();
