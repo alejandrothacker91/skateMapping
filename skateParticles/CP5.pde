@@ -148,8 +148,8 @@ void controlEvent(ControlEvent theControlEvent) {
     // min and max values are stored in an array.
     // access this array with controller().arrayValue().
     // min is at index 0, max is at index 1.
-    minDepth = int(theControlEvent.getController().getArrayValue(0));
-    maxDepth = int(theControlEvent.getController().getArrayValue(1));
+    setMinDepth = int(theControlEvent.getController().getArrayValue(0));
+    setMaxDepth = int(theControlEvent.getController().getArrayValue(1));
     println("range update, done.");
   }
 }

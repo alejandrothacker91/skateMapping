@@ -46,7 +46,7 @@ void setupRS()
     camera.start(camResX, camResY, camFPS, depStream, colStream);
     if (camera.isRunning()) {
       consOut("RealSense camera started with "+camResX+" X "+camResY+" resolution at "+camFPS+" FPS.");
-      consOut("RealSense camera depth range is  "+minDepth+" to "+maxDepth+" [mm].");
+      consOut("RealSense camera depth range is  "+setMinDepth+" to "+setMaxDepth+" [mm].");
       camReady=true;
     } else {
       depthStream=error;
@@ -99,7 +99,7 @@ float scalaX=2.890f;
 void fetchDepth() {
   if (camReady) {
     camera.readFrames();
-    camera.createDepthImage(minDepth, maxDepth);
+    camera.createDepthImage(setMinDepth, setMaxDepth);
     depthStream=camera.getDepthImage();
     depthStream.filter(BLUR);
     //imageMode(CORNER);
