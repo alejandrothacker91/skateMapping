@@ -36,7 +36,7 @@ void setup() {
   setupGUI();
   setupRS();
   setupTest();
-  setupBoids();
+  //setupBoids();
 }
 void draw() {
   //background(backHue, backSat, backBri, backAlfa);
@@ -55,9 +55,9 @@ void draw() {
   showPool();
   runGUI();
   //  drawBoids();
-  avoidPool();
-  drawBoids();
-  avoids.clear();
+  //avoidPool();
+  //drawBoids();
+  //avoids.clear();
 }
 
 void showCoords() {
