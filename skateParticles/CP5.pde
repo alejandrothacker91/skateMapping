@@ -94,7 +94,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("postCropX1")
     .setRange(0, poolX-2)
-    .setValue(0)
+    .setValue(config.getInt("postCropX1", 0))
     .setPosition(guiStartX+13*pad, guiStartY+9*pad)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -102,7 +102,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("postCropY1")
     .setRange(0, poolY-2)
-    .setValue(0)
+    .setValue(config.getInt("postCropY1", 0))
     .setPosition(guiStartX+18*pad, guiStartY+9*pad)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -110,7 +110,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("postCropX2")
     .setRange(0, poolX)
-    .setValue(1080)
+    .setValue(config.getInt("postCropX2", 1080))
     .setPosition(guiStartX+24*pad, guiStartY+9*pad)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -118,7 +118,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("postCropY2")
     .setRange(0, poolY)
-    .setValue(1080)
+    .setValue(config.getInt("postCropY2", 1080))
     .setPosition(guiStartX+29*pad, guiStartY+9*pad)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -127,7 +127,7 @@ void setupP5() {
   //blur+thresh
   myKnobA = cp5.addKnob("postCropBlur")
     .setRange(0.0f, 12.0f)
-    .setValue(3.0f)
+    .setValue(config.getFloat("postCropBlur", 3.0f))
     .setPosition(guiStartX+13*pad, guiStartY+15*pad)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -135,7 +135,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("postCropThresh")
     .setRange(0.0f, 1.0f)
-    .setValue(0.60f)
+    .setValue(config.getFloat("postCropThresh", 0.60f))
     .setPosition(guiStartX+18*pad, guiStartY+15*pad)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
