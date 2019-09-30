@@ -33,6 +33,8 @@ int cropY2=0;
 
 PImage currFrame;
 
+boolean postCropFilters=false;
+
 void setupRS()
 {
   // width, height, fps, depth-stream, color-stream
@@ -101,7 +103,7 @@ void fetchDepth() {
     camera.readFrames();
     camera.createDepthImage(setMinDepth, setMaxDepth);
     depthStream=camera.getDepthImage();
-    depthStream.filter(BLUR);
+    //depthStream.filter(BLUR);
     //imageMode(CORNER);
     //image(depthStream, 0, 0);
   } else {
@@ -112,8 +114,11 @@ void cropDepth() {
   if ((cropX2>(cropX1+1))&&(cropY2>(cropY1+1))) {
     depthCrop=depthStream.get(cropX1, cropY1, cropX2-cropX1, cropY2-cropY1);
     postCrop=depthCrop;
-    postCrop.filter(BLUR, postCropBlur);
-    postCrop.filter(THRESHOLD, postCropThresh);
+    if (postCropFilters) {
+      postCrop.filter(BLUR, postCropBlur);
+      postCrop.filter(THRESHOLD, postCropThresh);
+    } else {
+    }
     //filter(BLUR, postCropBlur);
     //filter(THRESHOLD, postCropThresh);
   } else {
