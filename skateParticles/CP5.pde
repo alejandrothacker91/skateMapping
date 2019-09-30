@@ -28,7 +28,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("cropX1")
     .setRange(0, camResX-1)
-    .setValue(120)
+    .setValue(config.getInt("cropX1", 0))
     .setPosition(guiStartX+13*pad, guiStartY)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -37,7 +37,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("cropY1")
     .setRange(0, camResY-1)
-    .setValue(24)
+    .setValue(config.getInt("cropY1", 0))
     .setPosition(guiStartX+18*pad, guiStartY)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -45,7 +45,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("cropX2")
     .setRange(0, camResX-1)
-    .setValue(313)
+    .setValue(config.getInt("cropX2", 0))
     .setPosition(guiStartX+24*pad, guiStartY)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
@@ -53,7 +53,7 @@ void setupP5() {
 
   myKnobA = cp5.addKnob("cropY2")
     .setRange(0, camResY-1)
-    .setValue(206)
+    .setValue(config.getInt("cropY2", 0))
     .setPosition(guiStartX+29*pad, guiStartY)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)
