@@ -1,4 +1,4 @@
-int maxPop=10;
+int maxPop=1000;
 
 Boid barry;
 ArrayList<Boid> boids;
@@ -31,7 +31,11 @@ void setupBoids () {
   recalculateConstants();
   boids = new ArrayList<Boid>();
 
-  //spawnBoids();
+  for (int i=0; i<maxPop; i++) {
+    //boids.add(new Boid(poolX/2, poolY/2));
+    boids.add(new Boid(random(0, poolX), random(0, poolY)));
+    delay(1);
+  }
 
   avoids = new ArrayList<Avoid>();
   for (int x = 100; x < width - 100; x+= 100) {
@@ -41,38 +45,7 @@ void setupBoids () {
     }
   }
 
-  //setupWalls();
-}
-
-void spawnBoids() {
-  for (int i=0; i<maxPop; i++) {
-    //boids.add(new Boid(poolX/2, poolY/2));
-    boids.add(new Boid(random(0, poolX), random(0, poolY)));
-    delay(50);
-  }
-}
-boolean spawnFlag=false;
-int frameSpawn=4;
-void spawnBoidsFrame() {
-  if (spawnFlag) {
-    if (boids.size()<maxPop) {
-      if ((frameCount%frameSpawn)==0) {
-        boids.add(new Boid(random(0, poolX), random(0, poolY)));
-      }
-    }
-  }
-  //boids.add(new Boid(poolX/2, poolY/2));
-  boids.add(new Boid(random(0, poolX), random(0, poolY)));
-  delay(50);
-}
-
-int spawnDelay=100;
-void spawnSlowBoids() {
-  for (int i=0; i<maxPop; i++) {
-    //boids.add(new Boid(poolX/2, poolY/2));
-    boids.add(new Boid(random(0, poolX), random(0, poolY)));
-    delay(spawnDelay);
-  }
+  setupWalls();
 }
 
 void drawBoids () {
