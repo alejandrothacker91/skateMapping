@@ -99,7 +99,9 @@ void keyPressed () {
     exit();
   }
 }
+
 int avoidJump=10;
+
 
 void avoidPool() {
   loadPixels();
@@ -113,7 +115,7 @@ void avoidPool() {
       if (g>0.50f) {
         //fill(0, 255, 255, 255);
         //ellipse(i, j, 10, 10);
-        avoids.add(new Avoid(i, j));
+        //avoids.add(new Avoid(i, j));
       }
     }
   }
