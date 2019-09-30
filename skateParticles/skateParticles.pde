@@ -56,6 +56,7 @@ void draw() {
   runGUI();
   //  drawBoids();
   avoidPool();
+  //spawnBoidsFrame();
   drawBoids();
   avoids.clear();
 }
@@ -103,8 +104,14 @@ void keyPressed () {
   } else if (key == '=') {
     message("Increased Scale");
     globalScale /= 0.8;
+  } else if (key == 's') {
+    //spawnBoids();
+    spawnFlag=true;
+  } else if (key == 'a') {
+    //spawnSlowBoids();
   }
 }
+
 int avoidJump=10;
 
 void avoidPool() {
