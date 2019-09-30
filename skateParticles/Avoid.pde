@@ -10,12 +10,12 @@ class Avoid {
   void setX(int input) {
     pos.x=input;
   }
-  
+
   void setY(int input) {
     pos.y=input;
   }
   void draw () {
-    fill(0, 255, 200);
-    ellipse(pos.x, pos.y, 15, 15);
+    //fill(0, 255, 200);
+    //ellipse(pos.x, pos.y, 15, 15);
   }
 }
