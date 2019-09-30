@@ -19,8 +19,7 @@ int partSat=255;
 int partBri=255;
 int partAlfa=255;
 
-boolean performanceFlag=true;
-boolean avoidFlag=true;
+boolean performance=true;
 
 void settings() {
   setupLog();
@@ -89,11 +88,8 @@ void keyPressed () {
     consOut("Toggle pool mode: "+currPoolMode+" - "+poolMod);
     //consOut("Toggle pool mode: "+currPoolMode+" - ");
   } else if (key=='P') {
-    performanceFlag = performanceFlag ? false : true;
-    consOut("Toggled performance mode to: "+performanceFlag);
-  } else if (key=='a') {
-    avoidFlag = avoidFlag ? false : true;
-    consOut("Toggled avoids mode to: "+avoidFlag);
+    performance = performance ? false : true;
+    consOut("Toggled performance mode to: "+performance);
   } else if (key=='p') {
     showPool = showPool ? false : true;
     consOut("Show pool: "+showPool);
@@ -106,22 +102,20 @@ void keyPressed () {
 int avoidJump=10;
 
 void avoidPool() {
-  if (avoidFlag) {
-    loadPixels();
-    noStroke();
-    fill(0);
-    rect(0, 0, poolX, poolY);
-    for (int i=0; i<poolX; i+=partJump) {
-      for (int j=0; j<poolY; j+=partJump) {
-        int loc = i + j*width;
-        float g = green(pixels [loc]);
-        if (g>0.50f) {
-          //fill(0, 255, 255, 255);
-          //ellipse(i, j, 10, 10);
-          avoids.add(new Avoid(i, j));
-        }
+  loadPixels();
+  noStroke();
+  fill(0);
+  rect(0, 0, poolX, poolY);
+  for (int i=0; i<poolX; i+=partJump) {
+    for (int j=0; j<poolY; j+=partJump) {
+      int loc = i + j*width;
+      float g = green(pixels [loc]);
+      if (g>0.50f) {
+        //fill(0, 255, 255, 255);
+        //ellipse(i, j, 10, 10);
+        avoids.add(new Avoid(i, j));
       }
     }
-    updatePixels();
   }
+  updatePixels();
 }

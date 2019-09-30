@@ -1,4 +1,4 @@
-int maxPop=20;
+int maxPop=500;
 
 Boid barry;
 ArrayList<Boid> boids;

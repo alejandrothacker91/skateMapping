@@ -60,7 +60,7 @@ void drawConsole() {  // Draw the console to the screen.
 }
 
 void drawCursor() {
-  if (performanceFlag) {
+  if (performance) {
     noCursor();
   } else {
     imageMode(CENTER);
@@ -70,7 +70,7 @@ void drawCursor() {
 }
 
 void drawPoolBorder() { 
-  if (performanceFlag) {
+  if (performance) {
   } else {
     if (showPool) {
       fill(0, 0);
@@ -86,7 +86,7 @@ int currPoolMode=3;
 int poolModes=4;
 String poolMod="";
 void showPool() {
-  if (performanceFlag) {
+  if (performance) {
     //consOut("PERFORMANCE MODE");
   } else {
     currPoolMode=currPoolMode%poolModes;
