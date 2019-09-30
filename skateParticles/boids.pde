@@ -95,7 +95,8 @@ void mouseUpdate() {
 }
 // haha
 
-float avoidScale=1.80f;
+//float avoidScale=0.0010f;
+float avoidScale=1.0f;
 void recalculateConstants () {
   maxSpeed = 8.0;
   friendRadius = 60 * globalScale;
