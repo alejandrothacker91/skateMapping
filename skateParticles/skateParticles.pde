@@ -97,6 +97,12 @@ void keyPressed () {
     consOut("Exit on purpose.");
     //delay(1000);
     exit();
+  } else if (key == '-') {
+    message("Decreased scale");
+    globalScale *= 0.8;
+  } else if (key == '=') {
+    message("Increased Scale");
+    globalScale /= 0.8;
   }
 }
 int avoidJump=10;

@@ -1,4 +1,4 @@
-int maxPop=500;
+int maxPop=1000;
 
 Boid barry;
 ArrayList<Boid> boids;
@@ -94,11 +94,14 @@ void mouseUpdate() {
   currAv.setY(mouseY);
 }
 // haha
+
+float avoidScale=1.80f;
 void recalculateConstants () {
-  maxSpeed = 4.0;
+  maxSpeed = 8.0;
   friendRadius = 60 * globalScale;
   crowdRadius = (friendRadius / 1.3);
-  avoidRadius = 90 * globalScale;
+  //avoidRadius = 90 * globalScale;
+  avoidRadius = 100 * avoidScale;
   coheseRadius = friendRadius;
 }
 
