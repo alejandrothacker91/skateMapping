@@ -16,7 +16,7 @@ int camResY=480;
 int camFPS=30;
 boolean depStream=true;
 boolean colStream=false;
-int minDepth=500;
+int minDepth=1000;
 int maxDepth=3000;
 
 int minThresh=50;
@@ -138,49 +138,6 @@ void fillSpaces() {
         //fill(0, 255, 255, 255);
         fill(partHue, partSat, partBri, partAlfa);
         ellipse(i, j, partSize, partSize);
-      }
-    }
-  }
-}
-
-void drawRS()
-{
-  background(0);
-
-  // read frames
-  camera.readFrames();
-
-  // create grayscale image form depth buffer
-  // min and max depth
-  //--
-  camera.createDepthImage(minDepth, maxDepth);
-  //currFrame=camera.getDepthImage();
-
-  //currFrame.filter(BLUR, 2.0f);
-
-  // show color image
-  //image(camera.getDepthImage(), 0, 0);
-
-  //colorMode(RGB, 255, 255, 255, 255);
-  //image(camera.getColorImage(), 0, 0);
-
-  //colorMode(HSB, 360, 255, 255, 255);
-  //--
-  //dep2Part(10);
-
-  //image(currFrame, 0, 0);
-  //println(frameRate);
-}
-
-void walkDepth(int jump) {
-  for (int i=jump; i<width; i+=jump) {
-    for (int j=jump; j<height; j+=jump) {
-      //systems.add(new ParticleSystem(1, new PVector(i, j)));
-      if (camera.getDepth(i, j)<depThresh) {
-        noStroke();
-        fill(255, 0, 0, 255);
-        ellipse(i, j, 10, 10);
-        //println("TRIGGERED AT  "+i+"  ,  "+j);
       }
     }
   }

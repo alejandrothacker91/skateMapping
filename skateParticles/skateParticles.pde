@@ -39,6 +39,7 @@ void setup() {
   setupBoids();
 }
 void draw() {
+  //globalScale=map(mouseX, 0, width, 0.10f, 5.0f);
   //background(backHue, backSat, backBri, backAlfa);
   //background(partHue, partSat, partBri, partAlfa);
   background(0);
