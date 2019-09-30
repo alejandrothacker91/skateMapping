@@ -186,12 +186,17 @@ class Boid {
       Boid f = friends.get(i);
       stroke(90);
       //line(this.pos.x, this.pos.y, f.pos.x, f.pos.y);
-    }    
-    fill(255);
+    }
     noStroke();
-    //fill(partHue, partSat, partBri, partAlfa);
+    fill(partHue, partSat, partBri, partAlfa);
     pushMatrix();
     translate(pos.x, pos.y);
+    //rotate(move.heading());
+    //beginShape();
+    //vertex(15 * globalScale, 0);
+    //vertex(-7* globalScale, 7* globalScale);
+    //vertex(-7* globalScale, -7* globalScale);
+    //endShape(CLOSE);
     ellipse(0, 0, partSize, partSize);
     popMatrix();
   }
