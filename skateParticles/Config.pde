@@ -7,7 +7,7 @@ boolean loadConfig() {
   if (config!=null) {
 
 
-    performance=boolean(config.getInt("performance", 0));
+    performanceFlag=boolean(config.getInt("performance", 0));
 
     fps=config.getFloat("fps", 30.0);
 
