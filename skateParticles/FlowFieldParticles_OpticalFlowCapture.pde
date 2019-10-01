@@ -35,9 +35,9 @@ int viewp_h = (int) (viewp_w * cam_h/(float)cam_w);
 
 //Capture cam;
 
-import ch.bildspur.realsense.*;
+//import ch.bildspur.realsense.*;
 
-RealSenseCamera rsCam = new RealSenseCamera(this);
+//RealSenseCamera rsCam = new RealSenseCamera(this);
 
 PGraphics2D pg_canvas;
 PGraphics2D pg_obstacles;
@@ -49,20 +49,18 @@ DwFlowFieldParticles particles;
 
 DwFlowFieldParticles.SpawnRect spawn = new DwFlowFieldParticles.SpawnRect();
 
-public void settings() {
+public void settings0() {
   size(viewp_w, viewp_h, P2D);
   smooth(0);
-  println(Capture.list());
+  //println(Capture.list());
 }
 
 
 
-public void setup() {
+public void setupParties() {
   surface.setLocation(230, 0);
-  rsCam.start(424, 240, 30, true, false);
 
-
-  rsCam.start(424, 240, 30, true, false);
+  //rsCam.start(424, 240, 30, true, false);
 
   pg_cam = (PGraphics2D) createGraphics(cam_w, cam_h, P2D);
   pg_cam.smooth(0);
@@ -143,14 +141,16 @@ public void setup() {
 
 
 
-public void draw() {
+public void drawParties() {
 
-    rsCam.readFrames();
+    //rsCam.readFrames();
 
-    rsCam.createDepthImage(0, 3000);
-    PImage temp=  rsCam.getDepthImage();
+    //rsCam.createDepthImage(0, 3000);
+    //PImage temp=  rsCam.getDepthImage();
+    
     pg_cam.beginDraw();
-    pg_cam.image(temp, 0, 0);
+    //here is the ingest!!! pimage temp
+    //pg_cam.image(temp, 0, 0);
     pg_cam.endDraw();
 
     // apply any filters
