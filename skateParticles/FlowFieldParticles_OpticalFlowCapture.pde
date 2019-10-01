@@ -27,11 +27,11 @@ import processing.video.Capture;
 // The optical flow of a webcam capture is used as acceleration for the particles.
 //
 
-int cam_w = 640;
-int cam_h = 480;
+//int poolX = 640;
+//int cam_h = 480;
 
-int viewp_w = 1280;
-int viewp_h = (int) (viewp_w * cam_h/(float)cam_w);
+//int viewp_w = 1280;
+//int viewp_h = (int) (poolX * poolY/(float)poolX);
 
 //Capture cam;
 
@@ -50,7 +50,7 @@ DwFlowFieldParticles particles;
 DwFlowFieldParticles.SpawnRect spawn = new DwFlowFieldParticles.SpawnRect();
 
 public void settings0() {
-  size(viewp_w, viewp_h, P2D);
+  size(poolX, poolY, P2D);
   smooth(0);
   //println(Capture.list());
 }
@@ -58,11 +58,11 @@ public void settings0() {
 
 
 public void setupParties() {
-  surface.setLocation(230, 0);
+  //surface.setLocation(230, 0);
 
   //rsCam.start(424, 240, 30, true, false);
 
-  pg_cam = (PGraphics2D) createGraphics(cam_w, cam_h, P2D);
+  pg_cam = (PGraphics2D) createGraphics(poolX, poolY, P2D);
   pg_cam.smooth(0);
   pg_cam.beginDraw();
   pg_cam.background(0);
@@ -92,7 +92,7 @@ public void setupParties() {
   context.printGL();
 
   // optical flow 
-  opticalflow = new DwOpticalFlow(context, cam_w, cam_h);
+  opticalflow = new DwOpticalFlow(context, poolX, poolY);
   opticalflow.param.grayscale = true;
 
   //    border = 120;
@@ -143,22 +143,22 @@ public void setupParties() {
 
 public void drawParties() {
 
-    //rsCam.readFrames();
+  //rsCam.readFrames();
 
-    //rsCam.createDepthImage(0, 3000);
-    //PImage temp=  rsCam.getDepthImage();
-    
-    pg_cam.beginDraw();
-    //here is the ingest!!! pimage temp
-    //pg_cam.image(temp, 0, 0);
-    pg_cam.endDraw();
+  //rsCam.createDepthImage(0, 3000);
+  //PImage temp=  rsCam.getDepthImage();
 
-    // apply any filters
-    DwFilter.get(context).luminance.apply(pg_cam, pg_cam);
+  pg_cam.beginDraw();
+  //here is the ingest!!! pimage temp
+  //pg_cam.image(temp, 0, 0);
+  pg_cam.endDraw();
 
-    // compute Optical Flow
-    opticalflow.update(pg_cam);
-  
+  // apply any filters
+  DwFilter.get(context).luminance.apply(pg_cam, pg_cam);
+
+  // compute Optical Flow
+  opticalflow.update(pg_cam);
+
 
   particles.param.timestep = 1f/frameRate;
 
