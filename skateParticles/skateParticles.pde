@@ -115,7 +115,7 @@ void setup() {
   setupGUI();
   setupRS();
   setupTest();
-  setupParties();
+  //setupParties();
 }
 void draw() {
   background(0);
@@ -125,7 +125,7 @@ void draw() {
   showPool();
   runLowRes();
 
-  drawParties();
+  //drawParties();
   //always at end:
   runGUI();
 }
