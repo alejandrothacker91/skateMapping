@@ -111,11 +111,13 @@ public void setupParties() {
 
   // partcle simulation
   particles = new DwFlowFieldParticles(context, numx * numy);
-  // particles.param.col_A = new float[]{0.40f, 0.80f, 0.10f, 3};
-  // particles.param.col_B = new float[]{0.20f, 0.40f, 0.05f, 0};
-  // particles.param.col_B = new float[]{0.80f, 0.40f, 0.80f, 0};
-  particles.param.col_A = new float[]{0.25f, 0.50f, 1.00f, 3};
-  particles.param.col_B = new float[]{0.25f, 0.10f, 0.00f, 0};
+
+  particles.param.col_A = new float[]{1.0f, 1.0f, 1.0f, 0.50f};
+  particles.param.col_B = new float[]{1.0f, 1.0f, 1.0f, 1};
+
+  //particles.param.col_A = new float[]{1.0f, 0.0f, 0.0f, 3};
+  //particles.param.col_B = new float[]{0.0f, 0.0f, 0.0f, 0};
+
   particles.param.shader_type = 1;
   particles.param.shader_collision_mult = 0.4f;
   particles.param.steps = 1;
@@ -146,11 +148,17 @@ public void drawParties() {
   //rsCam.readFrames();
 
   //rsCam.createDepthImage(0, 3000);
-  PImage temp=get(0, 0, poolX, poolY);
+  //postCrop.resize(poolX, poolY);
+  //PImage temp=postCrop;
+
+  //PImage temp=depthStream;
+  //temp.resize(poolX,poolY);
 
   pg_cam.beginDraw();
   //here is the ingest!!! pimage temp
-  pg_cam.image(temp, 0, 0);
+  //pg_cam.image(temp, 0, 0);
+  //depthCrop.resize(poolX, poolY);
+  pg_cam.image(depthStream, 0, 0);
   pg_cam.endDraw();
 
   // apply any filters
@@ -167,7 +175,10 @@ public void drawParties() {
 
   // render obstacles + particles
   pg_canvas.beginDraw(); 
-  pg_canvas.image(pg_cam, 0, 0, poolX, poolY);
+  //pg_canvas.image(pg_cam, 0, 0, poolX, poolY);
+
+  pg_canvas.fill(0, 255);
+  pg_canvas.rect(0, 0, poolX, poolY);
   pg_canvas.image(pg_obstacles, 0, 0);
   pg_canvas.endDraw();
   particles.displayParticles(pg_canvas);
