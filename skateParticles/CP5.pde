@@ -32,7 +32,7 @@ void setupP5() {
     ;
 
   myKnobA = cp5.addKnob("cropX1")
-    .setRange(0, camResX-1)
+    .setRange(0, poolX)
     .setValue(config.getInt("cropX1", 0))
     .setPosition(guiStartX+13*pad, guiStartY)
     .setRadius(40)
@@ -41,7 +41,7 @@ void setupP5() {
 
 
   myKnobA = cp5.addKnob("cropY1")
-    .setRange(0, camResY-1)
+    .setRange(0, poolY)
     .setValue(config.getInt("cropY1", 0))
     .setPosition(guiStartX+18*pad, guiStartY)
     .setRadius(40)

@@ -168,6 +168,8 @@ public void drawParties() {
   //here is the ingest!!! pimage temp
   //pg_cam.image(temp, 0, 0);
   //depthCrop.resize(poolX, poolY);
+  pg_canvas.fill(0);
+  pg_canvas.rect(0, 0, poolX, poolY);
   pg_cam.image(depthStream, depthBiasX, depthBiasY, cropX1, cropY1);
   pg_cam.endDraw();
 
@@ -185,7 +187,7 @@ public void drawParties() {
 
   // render obstacles + particles
   pg_canvas.beginDraw();
-  
+
   pg_canvas.image(pg_cam, 0, 0, poolX, poolY);
 
   pg_canvas.fill(backFill, map(mouseX, 0, width, 0, 255));
@@ -202,5 +204,5 @@ public void drawParties() {
 }
 
 public void keyReleased() {
-  //particles.spawn(poolX, poolY, spawn);
+  particles.spawn(poolX, poolY, spawn);
 }
