@@ -49,6 +49,8 @@ DwFlowFieldParticles particles;
 
 DwFlowFieldParticles.SpawnRect spawn = new DwFlowFieldParticles.SpawnRect();
 
+
+
 public void settings0() {
   size(poolX, poolY, P2D);
   smooth(0);
@@ -57,6 +59,7 @@ public void settings0() {
 
 
 
+int backFill;
 public void setupParties() {
   //surface.setLocation(230, 0);
 
@@ -112,11 +115,18 @@ public void setupParties() {
   // partcle simulation
   particles = new DwFlowFieldParticles(context, numx * numy);
 
+  //white parts:
+
+  backFill=0;
   particles.param.col_A = new float[]{1.0f, 1.0f, 1.0f, 0.50f};
   particles.param.col_B = new float[]{1.0f, 1.0f, 1.0f, 1};
 
-  //particles.param.col_A = new float[]{1.0f, 0.0f, 0.0f, 3};
-  //particles.param.col_B = new float[]{0.0f, 0.0f, 0.0f, 0};
+  //black parts:
+  /*
+  backFill=255;
+   particles.param.col_A = new float[]{0.0f, 0.0f, 0.0f, 0.50f};
+   particles.param.col_B = new float[]{0.0f, 0.0f, 0.0f, 1};
+   */
 
   particles.param.shader_type = 1;
   particles.param.shader_collision_mult = 0.4f;
@@ -158,7 +168,7 @@ public void drawParties() {
   //here is the ingest!!! pimage temp
   //pg_cam.image(temp, 0, 0);
   //depthCrop.resize(poolX, poolY);
-  pg_cam.image(depthStream, 0, 0);
+  pg_cam.image(depthStream, depthBiasX, depthBiasY, cropX1, cropY1);
   pg_cam.endDraw();
 
   // apply any filters
@@ -174,10 +184,11 @@ public void drawParties() {
   particles.update(opticalflow.frameCurr.velocity);
 
   // render obstacles + particles
-  pg_canvas.beginDraw(); 
-  //pg_canvas.image(pg_cam, 0, 0, poolX, poolY);
+  pg_canvas.beginDraw();
+  
+  pg_canvas.image(pg_cam, 0, 0, poolX, poolY);
 
-  pg_canvas.fill(0, 255);
+  pg_canvas.fill(backFill, map(mouseX, 0, width, 0, 255));
   pg_canvas.rect(0, 0, poolX, poolY);
   pg_canvas.image(pg_obstacles, 0, 0);
   pg_canvas.endDraw();
