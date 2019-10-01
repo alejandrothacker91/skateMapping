@@ -71,8 +71,6 @@ void keyPressed () {
 
 int scanJump=50;
 
-
-
 void scanPool() {
   loadPixels();
   noStroke();
@@ -112,4 +110,5 @@ void draw() {
   showPool();
   runGUI();
   scanPool();
+  runParts();
 }

@@ -26,7 +26,7 @@ void setParticles() {
     //println("i rows:  "+iMax);
     for (int j=0; j<poolY; j+=scanJump) {
       //jMax++;
-      systems.add(new ParticleSystem(100, i, j));
+      systems.add(new ParticleSystem(10, i, j));
       //fill(255);
       //ellipse(i, j, 10, 10);
     }
@@ -42,13 +42,19 @@ void setParticles() {
   println("j columns:  "+jMax);
   println("Total systems:  "+systems.size());
 } 
-void runParts() {
+void runPartsij() {
   for (int i=0; i<iMax; i++) {
     for (int j=0; j<jMax; j++) {
       ParticleSystem curr=systems.get(i+j*iMax);
       curr.update();
       curr.display();
     }
+  }
+}
+void runParts() {
+  for (ParticleSystem ps : systems) {
+    ps.update();
+    ps.display();
   }
 }
 void drawParticles() {
