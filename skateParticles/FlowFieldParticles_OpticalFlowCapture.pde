@@ -146,11 +146,11 @@ public void drawParties() {
   //rsCam.readFrames();
 
   //rsCam.createDepthImage(0, 3000);
-  //PImage temp=  rsCam.getDepthImage();
+  PImage temp=get(0, 0, poolX, poolY);
 
   pg_cam.beginDraw();
   //here is the ingest!!! pimage temp
-  //pg_cam.image(temp, 0, 0);
+  pg_cam.image(temp, 0, 0);
   pg_cam.endDraw();
 
   // apply any filters
