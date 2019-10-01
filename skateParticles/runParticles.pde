@@ -7,10 +7,17 @@ PImage sprite;
 int iMax=0;
 int jMax=0;
 int jump=40;
+
 void setupParticles() {
-  size(800, 600, P2D);
-  frameRate(30.0f);
-  orientation(LANDSCAPE);
+  //orientation(LANDSCAPE);
+  sprite = loadImage("sprite.png");
+  systems = new ArrayList<ParticleSystem>();
+
+  hint(DISABLE_DEPTH_MASK);
+}
+
+void setParticles() {
+  //orientation(LANDSCAPE);
   sprite = loadImage("sprite.png");
   systems = new ArrayList<ParticleSystem>();
   //ps = new ParticleSystem(10, 100, 100);
@@ -34,12 +41,6 @@ void setupParticles() {
 
   println("i rows:  "+iMax);
   println("j columns:  "+jMax);
-
-
-  // Writing to the depth buffer is disabled to avoid rendering
-  // artifacts due to the fact that the particles are semi-transparent
-  // but not z-sorted.
-  hint(DISABLE_DEPTH_MASK);
 } 
 
 void drawParticles() {

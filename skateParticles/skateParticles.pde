@@ -100,6 +100,7 @@ void setup() {
   setupGUI();
   setupRS();
   setupTest();
+  setupParticles();
 }
 void draw() {
   background(0);
