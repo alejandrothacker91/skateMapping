@@ -22,9 +22,9 @@ void setParticles() {
   sprite = loadImage("sprite.png");
   systems = new ArrayList<ParticleSystem>();
 
-  for (int i=0; i<poolX; i+=scanJump) {
+  for (int i=0; i<poolX; i+=lowResJump) {
     //println("i rows:  "+iMax);
-    for (int j=0; j<poolY; j+=scanJump) {
+    for (int j=0; j<poolY; j+=lowResJump) {
       //jMax++;
       systems.add(new ParticleSystem(10, i, j));
       //fill(255);

@@ -47,7 +47,7 @@ boolean loadConfig() {
     setMinDepth=config.getInt("setMinDepth", 1000);
     setMaxDepth=config.getInt("setMaxDepth", 3000);
 
-    cropX1=config.getInt("cropX1",0);
+    cropX1=config.getInt("cropX1", 0);
     println("cropX1:  "+cropX1);
     cropY1=config.getInt("cropY1", 0);
 
@@ -55,6 +55,11 @@ boolean loadConfig() {
     cropY2=config.getInt("cropY2", 0);
 
     currTestCard=config.getInt("currTestCard", 1);
+
+
+    lowResJump=config.getInt("lowResJump", 50);
+    lowResRadius=config.getInt("lowResRadius", 50);
+
     //end capture
     //start delog
     deLog(inf, cona, "config.xml file loaded.");

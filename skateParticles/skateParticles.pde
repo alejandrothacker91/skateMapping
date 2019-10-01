@@ -45,6 +45,37 @@ void mousePressed() {
   //systems.remove(0);
 }
 
+int lowResJump;
+int lowResRadius;
+
+boolean lowResFlag=true;
+boolean lowResDepthFlag=false;
+
+void runLowRes() {
+  if (lowResFlag) {
+    loadPixels();
+    noStroke();
+    fill(0, int(!lowResDepthFlag)*255);
+    rect(0, 0, poolX, poolY);
+    for (int i=0; i<poolX; i+=lowResJump) {
+      for (int j=0; j<poolY; j+=lowResJump) {
+        int loc = i + j*width;
+
+        int locRed = (pixels [loc] >> 16) & 0xFF;
+        if (locRed>128) {
+          fill(255, 255);
+          ellipse(i, j, lowResRadius, lowResRadius);
+        }
+      }
+    }
+    //updatePixels();
+  }
+}
+
+
+//keys--
+
+
 void keyPressed () {
   if (key == 't') {
     //action, then console message
@@ -66,30 +97,14 @@ void keyPressed () {
   } else if (key=='S') {
     consOut("Set particles.");
     setParticles();
+  } else if (key=='L') {
+    lowResFlag = lowResFlag ? false : true;
+    consOut("Toggled lowRes to: "+lowResFlag);
+  } else if (key=='l') {
+    lowResDepthFlag = lowResDepthFlag ? false : true;
+    consOut("Show depth on lowRes: "+lowResDepthFlag);
   }
 }
-
-int scanJump=50;
-
-void scanPool() {
-  loadPixels();
-  noStroke();
-  fill(0);
-  rect(0, 0, poolX, poolY);
-  for (int i=0; i<poolX; i+=scanJump) {
-    for (int j=0; j<poolY; j+=scanJump) {
-      int loc = i + j*width;
-
-      int locRed = (pixels [loc] >> 16) & 0xFF;
-      if (locRed>128) {
-        fill(0, 255, 255, 255);
-        ellipse(i, j, 10, 10);
-      }
-    }
-  }
-  //updatePixels();
-}
-
 
 
 //ONLY SETUP AND DRAW
@@ -108,7 +123,8 @@ void draw() {
   cropDepth();
   showTest(currTestCard);
   showPool();
-  runGUI();
-  scanPool();
+  //runGUI();
+  runLowRes();
   runParts();
+  runGUI();
 }
