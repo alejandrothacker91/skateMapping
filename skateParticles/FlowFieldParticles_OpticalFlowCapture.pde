@@ -68,11 +68,11 @@ public void setupParties() {
   pg_cam.background(0);
   pg_cam.endDraw();
 
-  pg_canvas = (PGraphics2D) createGraphics(width, height, P2D);
+  pg_canvas = (PGraphics2D) createGraphics(poolX, poolY, P2D);
   pg_canvas.smooth(0);
 
   int border = 20;
-  pg_obstacles = (PGraphics2D) createGraphics(width, height, P2D);
+  pg_obstacles = (PGraphics2D) createGraphics(poolX, poolY, P2D);
   pg_obstacles.smooth(0);
   pg_obstacles.beginDraw();
   pg_obstacles.clear();
@@ -80,9 +80,9 @@ public void setupParties() {
   pg_obstacles.blendMode(REPLACE);
   pg_obstacles.rectMode(CORNER);
   pg_obstacles.fill(0, 255);
-  pg_obstacles.rect(0, 0, width, height);
+  pg_obstacles.rect(0, 0, poolX, poolY);
   pg_obstacles.fill(0, 0);
-  pg_obstacles.rect(border/2, border/2, width-border, height-border);
+  pg_obstacles.rect(border/2, border/2, poolX-border, poolY-border);
   pg_obstacles.endDraw();
 
 
@@ -96,8 +96,8 @@ public void setupParties() {
   opticalflow.param.grayscale = true;
 
   //    border = 120;
-  float dimx = width  - border;
-  float dimy = height - border;
+  float dimx = poolX  - border;
+  float dimy = poolY - border;
 
   int particle_size = 6;
   int numx = (int) (dimx / (0.9f*particle_size));
@@ -106,7 +106,7 @@ public void setupParties() {
   // particle spawn-def, rectangular shape
   spawn.num(numx, numy);
   spawn.dim(dimx, dimy);
-  spawn.pos(width/2-dimx/2, height/2-dimy/2);
+  spawn.pos(poolX/2-dimx/2, poolY/2-dimy/2);
   spawn.vel(0, 0);
 
   // partcle simulation
@@ -132,8 +132,8 @@ public void setupParties() {
   particles.param.wh_scale_col = 0;
 
   // init stuff that doesn't change
-  particles.resizeWorld(width, height); 
-  particles.spawn(width, height, spawn);
+  particles.resizeWorld(poolX, poolY); 
+  particles.spawn(poolX, poolY, spawn);
   particles.createObstacleFlowField(pg_obstacles, new int[]{0, 0, 0, 255}, false);
 
   frameRate(1000);
@@ -167,7 +167,7 @@ public void drawParties() {
 
   // render obstacles + particles
   pg_canvas.beginDraw(); 
-  pg_canvas.image(pg_cam, 0, 0, width, height);
+  pg_canvas.image(pg_cam, 0, 0, poolX, poolY);
   pg_canvas.image(pg_obstacles, 0, 0);
   pg_canvas.endDraw();
   particles.displayParticles(pg_canvas);
@@ -180,5 +180,5 @@ public void drawParties() {
 }
 
 public void keyReleased() {
-  particles.spawn(width, height, spawn);
+  particles.spawn(poolX, poolY, spawn);
 }
