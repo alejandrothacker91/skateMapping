@@ -115,7 +115,7 @@ void setup() {
   setupGUI();
   setupRS();
   setupTest();
-  //setupParticles();
+  setupParties();
 }
 void draw() {
   background(0);
@@ -123,8 +123,9 @@ void draw() {
   cropDepth();
   showTest(currTestCard);
   showPool();
-  //runGUI();
   runLowRes();
-  //runParts();
+
+  drawParties();
+  //always at end:
   runGUI();
 }
