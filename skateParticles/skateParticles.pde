@@ -1,4 +1,4 @@
-float fps=30.0;
+float fps=60.0;
 boolean fullScr=false;
 int displayNum=0;
 int windowX=100;
@@ -48,7 +48,7 @@ void mousePressed() {
 int lowResJump;
 int lowResRadius;
 
-boolean lowResFlag=true;
+boolean lowResFlag=false;
 boolean lowResDepthFlag=false;
 
 void runLowRes() {
