@@ -96,7 +96,7 @@ void keyPressed () {
     exit();
   } else if (key=='S') {
     consOut("Set particles.");
-    setParticles();
+    //setParticles();
   } else if (key=='L') {
     lowResFlag = lowResFlag ? false : true;
     consOut("Toggled lowRes to: "+lowResFlag);
@@ -115,7 +115,7 @@ void setup() {
   setupGUI();
   setupRS();
   setupTest();
-  setupParticles();
+  //setupParticles();
 }
 void draw() {
   background(0);
@@ -125,6 +125,6 @@ void draw() {
   showPool();
   //runGUI();
   runLowRes();
-  runParts();
+  //runParts();
   runGUI();
 }
