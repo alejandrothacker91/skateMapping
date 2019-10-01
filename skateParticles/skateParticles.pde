@@ -67,27 +67,30 @@ void keyPressed () {
   }
 }
 
-int avoidJump=10;
+int scanJump=40;
 
 
 
 void scanPool() {
   loadPixels();
   noStroke();
-  fill(0);
-  rect(0, 0, poolX, poolY);
-  for (int i=0; i<poolX; i+=partJump) {
-    for (int j=0; j<poolY; j+=partJump) {
+  //fill(0);
+  //rect(0, 0, poolX, poolY);
+  for (int i=0; i<poolX; i+=scanJump) {
+    for (int j=0; j<poolY; j+=scanJump) {
       int loc = i + j*width;
-      float g = green(pixels [loc]);
-      if (g>0.50f) {
-        //fill(0, 255, 255, 255);
-        //ellipse(i, j, 10, 10);
+
+      int locRed = (pixels [loc] >> 16) & 0xFF;
+      if (locRed>128) {
+        fill(0, 255, 255, 255);
+        ellipse(i, j, 10, 10);
       }
     }
   }
-  updatePixels();
+  //updatePixels();
 }
+
+
 
 //ONLY SETUP AND DRAW
 void setup() {
@@ -105,5 +108,5 @@ void draw() {
   showTest(currTestCard);
   showPool();
   runGUI();
-  //scanPool();
+  scanPool();
 }
