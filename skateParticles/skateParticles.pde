@@ -62,12 +62,14 @@ void keyPressed () {
     consOut("Show pool: "+showPool);
   } else if (key=='E') {
     consOut("Exit on purpose.");
-    //delay(1000);
     exit();
+  } else if (key=='S') {
+    consOut("Set particles.");
+    setParticles();
   }
 }
 
-int scanJump=40;
+int scanJump=50;
 
 
 

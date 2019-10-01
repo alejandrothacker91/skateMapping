@@ -6,6 +6,7 @@ PImage sprite;
 
 int iMax=0;
 int jMax=0;
+int numSystems=0;
 int jump=40;
 
 void setupParticles() {
@@ -20,12 +21,10 @@ void setParticles() {
   //orientation(LANDSCAPE);
   sprite = loadImage("sprite.png");
   systems = new ArrayList<ParticleSystem>();
-  //ps = new ParticleSystem(10, 100, 100);
 
-
-  for (int i=0; i<width; i+=jump) {
+  for (int i=0; i<poolX; i+=scanJump) {
     //println("i rows:  "+iMax);
-    for (int j=0; j<height; j+=jump) {
+    for (int j=0; j<poolY; j+=scanJump) {
       //jMax++;
       systems.add(new ParticleSystem(100, i, j));
       //fill(255);
@@ -41,8 +40,17 @@ void setParticles() {
 
   println("i rows:  "+iMax);
   println("j columns:  "+jMax);
+  println("Total systems:  "+systems.size());
 } 
-
+void runParts() {
+  for (int i=0; i<iMax; i++) {
+    for (int j=0; j<jMax; j++) {
+      ParticleSystem curr=systems.get(i+j*iMax);
+      curr.update();
+      curr.display();
+    }
+  }
+}
 void drawParticles() {
   background(0);
 
