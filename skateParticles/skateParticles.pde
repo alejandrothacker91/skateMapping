@@ -74,8 +74,8 @@ int scanJump=40;
 void scanPool() {
   loadPixels();
   noStroke();
-  //fill(0);
-  //rect(0, 0, poolX, poolY);
+  fill(0);
+  rect(0, 0, poolX, poolY);
   for (int i=0; i<poolX; i+=scanJump) {
     for (int j=0; j<poolY; j+=scanJump) {
       int loc = i + j*width;
