@@ -126,8 +126,12 @@ void draw() {
   runLowRes();
 
   drawParties();
-  
-  image(depthStream, depthBiasX, depthBiasY, cropX1, cropY1);
+  if (calibrate) {
+    imageMode(CORNERS);
+    image(depthStream, depthX1, depthY1, depthX2, depthY2);
+    imageMode(CORNER);
+  }
+
   //always at end:
   runGUI();
 }
