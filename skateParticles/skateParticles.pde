@@ -77,6 +77,12 @@ void runLowRes() {
 
 
 void keyPressed () {
+  if (key == 'c') {
+    calibrate = calibrate ? false : true;
+    consOut("Toggled calibrate to: "+calibrate);
+  }
+}
+void keyPressed0() {
   if (key == 't') {
     //action, then console message
     currTestCard++;
