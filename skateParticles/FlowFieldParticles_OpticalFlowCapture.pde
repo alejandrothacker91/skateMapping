@@ -155,19 +155,8 @@ public void setupParties() {
 
 public void drawParties() {
 
-  //rsCam.readFrames();
-
-  //rsCam.createDepthImage(0, 3000);
-  //postCrop.resize(poolX, poolY);
-  //PImage temp=postCrop;
-
-  //PImage temp=depthStream;
-  //temp.resize(poolX,poolY);
-
   pg_cam.beginDraw();
-  //here is the ingest!!! pimage temp
-  //pg_cam.image(temp, 0, 0);
-  //depthCrop.resize(poolX, poolY);
+
   pg_canvas.fill(0);
   pg_canvas.rect(0, 0, poolX, poolY);
   pg_cam.image(depthStream, depthBiasX, depthBiasY, cropX1, cropY1);
