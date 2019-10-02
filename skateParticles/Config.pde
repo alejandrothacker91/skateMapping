@@ -48,7 +48,7 @@ boolean loadConfig() {
     setMaxDepth=config.getInt("setMaxDepth", 3000);
 
     cropX1=config.getInt("cropX1", 100);
-    println("cropX1:  "+cropX1);
+    //println("cropX1:  "+cropX1);
     cropY1=config.getInt("cropY1", 100);
 
     cropX2=config.getInt("cropX2", 0);
