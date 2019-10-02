@@ -2,15 +2,24 @@ PImage testCard;
 PImage blackShark;
 PImage whiteShark;
 int maxCards=4;//n+1 because of modulo
+int currTestCard=2;
+boolean testFlag=false;
 
 void setupTest() {
   testCard=loadImage("testCard.png");
   blackShark=loadImage("blackShark.bmp");
   whiteShark=loadImage("whiteShark.bmp");
 }
-int currTestCard=1;
 
-void showTest(int input) {
+void showTestcard() {
+  if (testFlag) {
+    imageMode(CORNERS);
+    image(blackShark, 0, 0, poolX, poolY);
+    imageMode(CORNER);
+  }
+}
+
+void showTest0(int input) {
   if (performance) {
     //consOut("PERFORMANCE MODE");
   } else {

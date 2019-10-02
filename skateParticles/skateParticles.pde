@@ -77,11 +77,15 @@ void runLowRes() {
 
 
 void keyPressed () {
-  if (key == 'c') {
+  if (key == 'C') {
     calibrate = calibrate ? false : true;
     consOut("Toggled calibrate to: "+calibrate);
+  } else if (key == 'T') {
+    testFlag = testFlag ? false : true;
+    consOut("Toggled testcard to: "+testFlag);
   }
 }
+
 void keyPressed0() {
   if (key == 't') {
     //action, then console message
@@ -127,17 +131,13 @@ void draw() {
   background(0);
   fetchDepth();
   cropDepth();
-  showTest(currTestCard);
+  //showTest(currTestCard);
   showPool();
   runLowRes();
 
   drawParties();
-  if (calibrate) {
-    imageMode(CORNERS);
-    image(depthStream, depthX1, depthY1, depthX2, depthY2);
-    imageMode(CORNER);
-  }
-
+  showCalib();
+  showTestcard();
   //always at end:
   runGUI();
 }

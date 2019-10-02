@@ -60,6 +60,7 @@ boolean loadConfig() {
     depthY2=config.getInt("depthY2", 200);
 
     calibrate=boolean(config.getInt("calibrate", 0));
+    testFlag=boolean(config.getInt("testFlag", 0));
 
     currTestCard=config.getInt("currTestCard", 1);
 

@@ -83,6 +83,14 @@ int deadX=9;
 
 int partJump=16;
 
+void showCalib() {  
+  if (calibrate) {
+    imageMode(CORNERS);
+    image(depthStream, depthX1, depthY1, depthX2, depthY2);
+    imageMode(CORNER);
+  }
+}
+
 void drawDepth() {
   camera.readFrames();
   //fill(255);
