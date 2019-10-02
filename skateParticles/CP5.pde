@@ -134,7 +134,7 @@ void setupP5() {
   //blur+thresh
   myKnobA = cp5.addKnob("postCropBlur")
     .setRange(0.0f, 3.0f)
-    .setValue(config.getFloat("postCropBlur", 3.0f))
+    .setValue(config.getFloat("postCropBlur", 0.0f))
     .setPosition(guiStartX+13*pad, guiStartY+15*pad)
     .setRadius(40)
     .setDragDirection(Knob.VERTICAL)

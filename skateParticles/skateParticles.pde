@@ -83,6 +83,9 @@ void keyPressed () {
   } else if (key == 'T') {
     testFlag = testFlag ? false : true;
     consOut("Toggled testcard to: "+testFlag);
+  } else if (key == 'L') {
+    threshFlag = threshFlag ? false : true;
+    consOut("Toggled threshold to: "+threshFlag);
   }
 }
 

@@ -116,15 +116,17 @@ void drawDepth() {
   }
 }
 float scalaX=2.890f;
+boolean threshFlag=false;
 
 void fetchDepth() {
   if (camReady) {
     camera.readFrames();
     camera.createDepthImage(setMinDepth, setMaxDepth);
     depthStream=camera.getDepthImage();
-    //depthStream.filter(BLUR);
-    //imageMode(CORNER);
-    //image(depthStream, 0, 0);
+    if (threshFlag) {
+      depthStream.filter(THRESHOLD, postCropThresh);
+    } else {
+    }
   } else {
   }
 }
