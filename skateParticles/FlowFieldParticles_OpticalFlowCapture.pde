@@ -190,7 +190,7 @@ public void drawParties() {
 
   pg_canvas.image(pg_cam, 0, 0, poolX, poolY);
 
-  pg_canvas.fill(backFill, map(mouseX, 0, width, 0, 255));
+  pg_canvas.fill(backFill, 255);
   pg_canvas.rect(0, 0, poolX, poolY);
   pg_canvas.image(pg_obstacles, 0, 0);
   pg_canvas.endDraw();
