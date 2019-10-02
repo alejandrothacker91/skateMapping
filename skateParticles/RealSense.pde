@@ -31,6 +31,13 @@ int cropY1=0;
 int cropX2=0;
 int cropY2=0;
 
+int depthX1;
+int depthY1;
+int depthX2;
+int depthY2;
+
+boolean calibrate=true;
+
 PImage currFrame;
 
 boolean postCropFilters=false;

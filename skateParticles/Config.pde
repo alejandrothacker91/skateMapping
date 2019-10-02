@@ -46,13 +46,18 @@ boolean loadConfig() {
 
     setMinDepth=config.getInt("setMinDepth", 1000);
     setMaxDepth=config.getInt("setMaxDepth", 3000);
-
+//crop
     cropX1=config.getInt("cropX1", 100);
-    //println("cropX1:  "+cropX1);
     cropY1=config.getInt("cropY1", 100);
 
     cropX2=config.getInt("cropX2", 0);
     cropY2=config.getInt("cropY2", 0);
+//depth corners
+    depthX1=config.getInt("depthX1", 0);
+    depthY1=config.getInt("depthY1", 0);
+
+    depthX2=config.getInt("depthX2", 200);
+    depthY2=config.getInt("depthY2", 200);
 
     currTestCard=config.getInt("currTestCard", 1);
 
