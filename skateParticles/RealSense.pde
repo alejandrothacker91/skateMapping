@@ -85,6 +85,10 @@ int partJump=16;
 
 void showCalib() {  
   if (calibrate) {
+    rectMode(CORNERS);
+    fill(0, 255);
+    rect(0, 0, poolX, poolY);
+    rectMode(CORNER);
     imageMode(CORNERS);
     image(depthStream, depthX1, depthY1, depthX2, depthY2);
     imageMode(CORNER);
