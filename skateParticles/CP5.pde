@@ -89,7 +89,7 @@ void setupP5() {
     //.setRange(setMinDepth, setMaxDepth)
     //.setRangeValues(minDepth, maxDepth)
     .setRange(minDepth, maxDepth)
-    .setRangeValues(setMinDepth, setMaxDepth)
+    .setRangeValues(config.getInt("setMinDepth", 0), config.getInt("setMaxDepth", 0))
     // after the initialization we turn broadcast back on again
     .setBroadcast(true)
     .setColorForeground(color(255, 40))
@@ -181,8 +181,8 @@ void setupP5() {
     .setHandleSize(20)
     //.setRange(setMinDepth, setMaxDepth)
     //.setRangeValues(minDepth, maxDepth)
-    .setRange(-1620, 2700)
-    .setRangeValues(440, 640)
+    .setRange(-3000, 4000)
+    .setRangeValues(depthX1, depthX2)
     // after the initialization we turn broadcast back on again
     .setBroadcast(true)
     .setColorForeground(color(255, 40))
@@ -197,8 +197,8 @@ void setupP5() {
     .setHandleSize(20)
     //.setRange(setMinDepth, setMaxDepth)
     //.setRangeValues(minDepth, maxDepth)
-    .setRange(-1620, 2700)
-    .setRangeValues(440, 640)
+    .setRange(-3000, 4000)
+    .setRangeValues(depthY1, depthY2)
     // after the initialization we turn broadcast back on again
     .setBroadcast(true)
     .setColorForeground(color(255, 40))

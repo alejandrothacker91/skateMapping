@@ -160,7 +160,10 @@ public void drawParties() {
   pg_canvas.fill(0);
   pg_canvas.rect(0, 0, poolX, poolY);
 
-  pg_cam.image(depthStream, depthX1, depthY1, depthX2, depthY2);
+  imageMode(CORNERS);
+  pg_cam.image(depthStream, depthBiasX+ depthX1, depthBiasY+depthY1, depthX2, depthY2);
+
+  imageMode(CORNER);
   pg_cam.endDraw();
 
   // apply any filters
@@ -179,8 +182,14 @@ public void drawParties() {
   pg_canvas.beginDraw();
 
   pg_canvas.image(pg_cam, 0, 0, poolX, poolY);
+  if (calibrate) {
 
-  pg_canvas.fill(backFill, 255);
+    pg_canvas.fill(backFill, 255);
+  } else {
+
+    pg_canvas.fill(backFill, 0);
+  }
+
   pg_canvas.rect(0, 0, poolX, poolY);
   pg_canvas.image(pg_obstacles, 0, 0);
   pg_canvas.endDraw();

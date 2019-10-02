@@ -142,7 +142,7 @@ void draw() {
   runLowRes();
 
   drawParties();
-  showCalib();
+  //showCalib();
   showTestcard();
   //always at end:
   runGUI();
