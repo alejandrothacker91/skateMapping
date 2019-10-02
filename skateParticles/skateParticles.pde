@@ -86,6 +86,9 @@ void keyPressed () {
   } else if (key == 'L') {
     threshFlag = threshFlag ? false : true;
     consOut("Toggled threshold to: "+threshFlag);
+  } else if (key == 'B') {
+    blurFlag = blurFlag ? false : true;
+    consOut("Toggled blur to: "+blurFlag);
   }
 }
 

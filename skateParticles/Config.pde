@@ -62,6 +62,7 @@ boolean loadConfig() {
     calibrate=boolean(config.getInt("calibrate", 0));
     testFlag=boolean(config.getInt("testFlag", 0));
     threshFlag=boolean(config.getInt("threshFlag", 0));
+    blurFlag=boolean(config.getInt("blurFlag", 0));
 
     currTestCard=config.getInt("currTestCard", 1);
 

@@ -117,12 +117,19 @@ void drawDepth() {
 }
 float scalaX=2.890f;
 boolean threshFlag=false;
+boolean blurFlag=false;
 
 void fetchDepth() {
   if (camReady) {
     camera.readFrames();
     camera.createDepthImage(setMinDepth, setMaxDepth);
     depthStream=camera.getDepthImage();
+
+    if (blurFlag) {
+      depthStream.filter(BLUR, postCropBlur);
+    } else {
+    }  
+
     if (threshFlag) {
       depthStream.filter(THRESHOLD, postCropThresh);
     } else {

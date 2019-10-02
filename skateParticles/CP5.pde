@@ -133,7 +133,7 @@ void setupP5() {
 
   //blur+thresh
   myKnobA = cp5.addKnob("postCropBlur")
-    .setRange(0.0f, 3.0f)
+    .setRange(0.0f, 12.0f)
     .setValue(config.getFloat("postCropBlur", 0.0f))
     .setPosition(guiStartX+13*pad, guiStartY+15*pad)
     .setRadius(40)
@@ -181,7 +181,7 @@ void setupP5() {
     .setHandleSize(20)
     //.setRange(setMinDepth, setMaxDepth)
     //.setRangeValues(minDepth, maxDepth)
-    .setRange(-1080, 2160)
+    .setRange(-1620, 2700)
     .setRangeValues(440, 640)
     // after the initialization we turn broadcast back on again
     .setBroadcast(true)
@@ -197,7 +197,7 @@ void setupP5() {
     .setHandleSize(20)
     //.setRange(setMinDepth, setMaxDepth)
     //.setRangeValues(minDepth, maxDepth)
-    .setRange(-1080, 2160)
+    .setRange(-1620, 2700)
     .setRangeValues(440, 640)
     // after the initialization we turn broadcast back on again
     .setBroadcast(true)
