@@ -123,7 +123,7 @@ void draw() {
   cropDepth();
   showTest(currTestCard);
   showPool();
-  runLowRes();
+  //runLowRes();
 
   drawParties();
   //always at end:

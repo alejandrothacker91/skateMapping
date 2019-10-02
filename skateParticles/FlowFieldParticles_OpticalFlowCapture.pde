@@ -155,46 +155,41 @@ public void setupParties() {
 
 public void drawParties() {
 
-  //rsCam.readFrames();
-
-  //rsCam.createDepthImage(0, 3000);
-  //postCrop.resize(poolX, poolY);
-  //PImage temp=postCrop;
-
-  //PImage temp=depthStream;
-  //temp.resize(poolX,poolY);
-
   pg_cam.beginDraw();
-  //here is the ingest!!! pimage temp
-  //pg_cam.image(temp, 0, 0);
-  //depthCrop.resize(poolX, poolY);
   pg_canvas.fill(0);
   pg_canvas.rect(0, 0, poolX, poolY);
-  pg_cam.image(depthStream, depthBiasX, depthBiasY, cropX1, cropY1);
+  //  pg_cam.image(depthStream, depthBiasX, depthBiasY, cropX1, cropY1);
+  pg_cam.image(depthStream, 0, 0, 100, 100);
   pg_cam.endDraw();
-
+  
   // apply any filters
-  DwFilter.get(context).luminance.apply(pg_cam, pg_cam);
+   DwFilter.get(context).luminance.apply(pg_cam, pg_cam);
+   
+   // compute Optical Flow
+   opticalflow.update(pg_cam);
+   
+   
+   particles.param.timestep = 1f/frameRate;
+   
+   // update particles, using the opticalflow for acceleration
+   particles.update(opticalflow.frameCurr.velocity);
+   
 
-  // compute Optical Flow
-  opticalflow.update(pg_cam);
+  
 
+   // render obstacles + particles
+   pg_canvas.beginDraw();
+   
+   pg_canvas.image(pg_cam, 0, 0, poolX, poolY);
+   
+   pg_canvas.fill(backFill, 255);
+   pg_canvas.rect(0, 0, poolX, poolY);
+   pg_canvas.image(pg_obstacles, 0, 0);
+   pg_canvas.endDraw();
+   particles.displayParticles(pg_canvas);
+   // render obstacles + particles
+   
 
-  particles.param.timestep = 1f/frameRate;
-
-  // update particles, using the opticalflow for acceleration
-  particles.update(opticalflow.frameCurr.velocity);
-
-  // render obstacles + particles
-  pg_canvas.beginDraw();
-
-  pg_canvas.image(pg_cam, 0, 0, poolX, poolY);
-
-  pg_canvas.fill(backFill, 255);
-  pg_canvas.rect(0, 0, poolX, poolY);
-  pg_canvas.image(pg_obstacles, 0, 0);
-  pg_canvas.endDraw();
-  particles.displayParticles(pg_canvas);
 
   // display result
   image(pg_canvas, 0, 0);
