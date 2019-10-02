@@ -89,6 +89,9 @@ void keyPressed () {
   } else if (key == 'B') {
     blurFlag = blurFlag ? false : true;
     consOut("Toggled blur to: "+blurFlag);
+  } else if (key == 'S') {
+    consOut("Spawned");
+    particles.spawn(poolX, poolY, spawn);
   }
 }
 
