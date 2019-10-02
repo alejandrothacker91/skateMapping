@@ -27,6 +27,12 @@ void setupGUI() {
 }
 
 void runGUI() {
+
+
+  rectMode(CORNERS);
+  fill(0, 255);
+  rect(poolX+1, 0, width, height);
+
   drawPoolBorder();
   drawConsole();
   drawSignals();
