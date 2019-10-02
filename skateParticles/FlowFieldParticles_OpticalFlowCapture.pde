@@ -122,11 +122,11 @@ public void setupParties() {
   //particles.param.col_B = new float[]{1.0f, 1.0f, 1.0f, 1};
 
   //black parts:
-  
+
   backFill=255;
-   particles.param.col_A = new float[]{0.0f, 0.0f, 0.0f, 0.50f};
-   particles.param.col_B = new float[]{0.0f, 0.0f, 0.0f, 1};
-   
+  particles.param.col_A = new float[]{0.0f, 0.0f, 0.0f, 3.0f};
+  particles.param.col_B = new float[]{0.0f, 0.0f, 0.0f, 3.0f};
+
 
   particles.param.shader_type = 1;
   particles.param.shader_collision_mult = 0.4f;
@@ -203,5 +203,6 @@ public void drawParties() {
 }
 
 public void keyReleased() {
+  //particles.spawn();
   //particles.spawn(poolX, poolY, spawn);
 }
