@@ -187,6 +187,22 @@ void setupP5() {
     .setBroadcast(true)
     .setColorForeground(color(255, 40))
     .setColorBackground(color(255, 40))  
+    ;  
+
+  rangeDY = cp5.addRange("rangeDepthY")
+    // disable broadcasting since setRange and setRangeValues will trigger an event
+    .setBroadcast(false) 
+    .setPosition(guiStartX, guiStartY+23*pad)
+    .setSize(800, 40)
+    .setHandleSize(20)
+    //.setRange(setMinDepth, setMaxDepth)
+    //.setRangeValues(minDepth, maxDepth)
+    .setRange(-1080, 2160)
+    .setRangeValues(440, 640)
+    // after the initialization we turn broadcast back on again
+    .setBroadcast(true)
+    .setColorForeground(color(255, 40))
+    .setColorBackground(color(255, 40))  
     ;
 
   //end of setup
@@ -211,6 +227,13 @@ void controlEvent(ControlEvent theControlEvent) {
     depthX1 = int(theControlEvent.getController().getArrayValue(0));
     depthX2 = int(theControlEvent.getController().getArrayValue(1));
     println("Depth X range is now: "+depthX1+" to "+depthX2);
+  } else  if (theControlEvent.isFrom("rangeDepthY")) {
+    // min and max values are stored in an array.
+    // access this array with controller().arrayValue().
+    // min is at index 0, max is at index 1.
+    depthY1 = int(theControlEvent.getController().getArrayValue(0));
+    depthY2 = int(theControlEvent.getController().getArrayValue(1));
+    println("Depth Y range is now: "+depthY1+" to "+depthY2);
   }
 }
 

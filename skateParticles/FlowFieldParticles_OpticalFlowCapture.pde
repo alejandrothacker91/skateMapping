@@ -159,7 +159,6 @@ public void drawParties() {
 
   pg_canvas.fill(0);
   pg_canvas.rect(0, 0, poolX, poolY);
-  //pg_cam.image(depthStream, depthBiasX, depthBiasY, cropX1, cropY1);
 
   pg_cam.image(depthStream, depthX1, depthY1, depthX2, depthY2);
   pg_cam.endDraw();
