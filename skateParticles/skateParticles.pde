@@ -126,6 +126,8 @@ void draw() {
   runLowRes();
 
   drawParties();
+  
+  image(depthStream, depthBiasX, depthBiasY, cropX1, cropY1);
   //always at end:
   runGUI();
 }
